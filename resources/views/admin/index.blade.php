@@ -9,5 +9,8 @@
 </head>
 <body>
     <h1>Admin</h1>
+    @foreach ( $daftar_admin as $admin )
+        <h1>Nama : {{ $admin->nama_admin }}</h1>
+    @endforeach
 </body>
 </html>

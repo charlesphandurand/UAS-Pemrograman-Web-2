@@ -18,7 +18,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/admin', [AdminController::class, 'index']);
+Route::get('/admin', [AdminController::class, 'index'])->name('index-admin');
+Route::get('/admin/mimin', [AdminController::class, 'mimin'])->name('browse-admin');
+Route::get('/admin/mimin/create', [AdminController::class, 'create'])->name('create-admin');
+
+Route::post('/admin/mimin/store', [AdminController::class, 'store'])->name('store-admin');
+Route::get('/admin/mimin/edit/{id}', [AdminController::class, 'edit'])->name('edit-admin');
+Route::put('/admin/mimin/update/{id}', [AdminController::class, 'update'])->name('update-admin');
+Route::delete('/admin/mimin/delete/{id}', [AdminController::class, 'delete'])->name('delete-admin');
 
 Route::get('/tes', function () {
     return view('tes');
