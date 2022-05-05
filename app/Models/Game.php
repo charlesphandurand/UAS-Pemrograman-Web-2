@@ -5,15 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Admin extends Model
+class Game extends Model
 {
     use HasFactory;
-
-    protected $table = 'admin';
-    protected $primaryKey = 'id_admin';
+    protected $table = 'game';
+    protected $primaryKey = 'id_game';
     protected $fillable = [
-      'nama_admin',
-      'username_admin',
-      'password_admin'
+      'nama_game'
     ];
 }

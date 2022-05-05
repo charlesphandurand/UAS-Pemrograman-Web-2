@@ -11,11 +11,15 @@
     <h1>Edit</h1>
     <div class="container">
         <div class="row">
-    <form method="post" action="{{ route('update-admin', $admin->id) }}">
+    <form method="post" action="{{ route('update-admin', $admin->id_admin) }}">
         @csrf
         @method('PUT')
       <label for="nama_admin" class="form-label">Nama Admin</label>
       <input type="text" class="form-control mb-3" name="nama_admin" id="nama_admin" value="{{ $admin->nama_admin }}">
+      <label for="username_admin" class="form-label">Username Admin</label>
+      <input type="text" class="form-control mb-3" name="username_admin" id="username_admin" value="{{ $admin->username_admin }}">
+      <label for="password_admin" class="form-label">Password Admin</label>
+      <input type="text" class="form-control mb-3" name="password_admin" id="password_admin" value="{{ $admin->password_admin }}">
       <button type="submit" class="btn btn-primary">Submit</button>
       <a class="btn btn-primary" href="{{ route('browse-admin') }}">Batal</a>
     </div>
