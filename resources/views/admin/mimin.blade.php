@@ -17,10 +17,10 @@
     </style>
     <title>Games - Admin Member</title>
 </head>
-<body>
+<body style="background-color: rgba(0, 0, 0, 0.226);">
     
+    <!-- awal sidebar  -->    
     <div class="wrapper">
-        <!-- Sidebar  -->
         <nav id="sidebar" class="bg-dark text-light">
             <div class="d-flex flex-column flex-shrink-0 p-3">
                 <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
@@ -65,7 +65,7 @@
             </ul>
         </nav>
 
-        <!-- Page Content  -->
+        <!-- awal konten -->
         <div id="content">
             {{-- awal table --}}
             <div class="container">
@@ -79,7 +79,8 @@
                         </div>
                         <div class="col-sm-4"><h3>Data Admin</h3></div>
                         <div class="col-sm-4 d-flex flex-row-reverse bd-highlight">
-                            <a class="btn btn-success" href="{{ route('create-admin') }}">
+                            {{-- <a class="btn btn-success" href="{{ route('create-admin') }}"> --}}
+                            <a class="btn btn-success" href="#" data-toggle="modal" data-target="#ModalCreate">
                             <i class="bi bi-plus-circle-fill" style="font-size: 15px"></i>
                              Tambah</a>
                         </div>
@@ -95,7 +96,7 @@
                             <th>Nama</th>
                             <th>Username</th>
                             <th>Password</th>
-                            <th>Opsi</th>
+                            <th width="20%">Opsi</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -106,7 +107,8 @@
                                     <td>{{ $admin->nama_admin }}</td>
                                     <td>{{ $admin->username_admin }}</td>
                                     <td>{{ $admin->password_admin }}</td>
-                                    <td><a class="btn btn-warning" href="{{ route('edit-admin', $admin->id_admin) }}"><i class="bi bi-pencil-square"></i> Edit</a>
+                                    {{-- <a class="btn btn-warning edit" href="{{ route('edit-admin', $admin->id_admin) }}"><i class="bi bi-pencil-square"></i> Edit</a> --}}
+                                    <td><a class="btn btn-warning edit" href="#" data-toggle="modal" data-target="#ModalEdit"><i class="bi bi-pencil-square"></i> Edit</a>
                                         <form action="{{ route('delete-admin', $admin->id_admin) }}" method="post" style="display:inline;">
                                             @csrf
                                             @method('DELETE')
@@ -124,58 +126,10 @@
                 {{-- akhir table --}}
         </div>
     </div>
+    <!-- akhir konten -->
 
-    {{-- awal table --}}
-    {{-- <div class="container">
-
-    <div class="card my-3">
-        <div class="card-header bg-dark text-light">
-        <div class="row">
-            <div class="col-sm-8"><h3>Data Admin</h3></div>
-            <div class="col-sm-4 d-flex flex-row-reverse bd-highlight">
-                <a class="btn btn-primary" href="{{ route('create-admin') }}">
-                <i class="bi bi-plus-circle-fill" style="font-size: 15px"></i>
-                 Tambah Data</a>
-            </div>
-        </div>
-    </div>
-        <div class="card-body">
-            <div class="table-responsive">
-    <table id="example" class="table table-striped" style="width:100%">
-        <thead>
-            <tr>
-                <th>#</th>
-                <th>ID</th>
-                <th>Nama</th>
-                <th>Username</th>
-                <th>Password</th>
-                <th>Opsi</th>
-            </tr>
-            </thead>
-            <tbody>
-                @foreach ( $daftar_admin as $admin )
-                    <tr>
-                        <td scope="row">{{ $loop->index + 1 }}</td>
-                        <td>{{ $admin->id_admin }}</td>
-                        <td>{{ $admin->nama_admin }}</td>
-                        <td>{{ $admin->username_admin }}</td>
-                        <td>{{ $admin->password_admin }}</td>
-                        <td><a class="btn btn-primary" href="{{ route('edit-admin', $admin->id_admin) }}"><i class="bi bi-pencil-square"></i> Edit</a>
-                            <form action="{{ route('delete-admin', $admin->id_admin) }}" method="post" style="display:inline;">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-danger" onclick="return confirm('Yakin mau hapus?')"><i class="bi bi-trash3-fill"></i> Delete</button>
-                            </form>
-                        </td>
-                    </tr>
-                @endforeach
-            </tbody>
-    </table>
-</div>
-</div>
-</div>
-</div> --}}
-    {{-- akhir table --}}
+    @include('admin.modal.create')
+    @include('admin.modal.edit')
 
     {{-- awal script datables --}}
     <script>
@@ -193,6 +147,7 @@
     <!-- jQuery Custom Scroller CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
 
+    {{-- awal script untuk toggle button sidebar --}}
     <script type="text/javascript">
         $(document).ready(function () {
             $("#sidebar").mCustomScrollbar({
@@ -206,6 +161,14 @@
             });
         });
     </script>
+    {{-- akhir script untuk toggle button sidebar --}}
 
+    {{-- awal script untuk mereset form create --}}
+    <script>
+        $('#ModalCreate').on('hidden.bs.modal', function (e) {
+            $('#create').find("input[type=text], textarea, input[type=password]").val("");
+        })
+    </script>
+    {{-- akhir script untuk mereset form create --}}
 </body>
 </html>
