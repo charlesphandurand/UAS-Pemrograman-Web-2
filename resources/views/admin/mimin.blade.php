@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="{{ asset('style.css') }}">
+    <link rel="stylesheet" href="{{ asset('/css/style.css') }}">
     <link rel="icon" type="image/png" href="{{ asset('favico.png') }}"/>
     {{-- awal source datables --}}
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
@@ -19,7 +19,7 @@
 </head>
 <body style="background-color: rgba(0, 0, 0, 0.226);">
     
-    <!-- awal sidebar  -->    
+    <!-- awal sidebar  -->
     <div class="wrapper">
         <nav id="sidebar" class="bg-dark text-light">
             <div class="d-flex flex-column flex-shrink-0 p-3">
@@ -28,7 +28,15 @@
                     <span class="fs-4 ps-1">Games</span>
                 </a>
                 <hr>
-
+                {{-- awal kondisi welcome session login --}}
+                @auth
+                    <p class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white fs-10">Welcome back, {{ auth()->user()->name }}</p>
+                <hr>
+                @else
+                    <p class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white fs-10">Welcome Guest</p>
+                    <hr>
+                @endauth
+                {{-- akhir kondisi welcome session login --}}
             <ul class="nav nav-pills flex-column mb-auto">
                 <li class="nav-item">
                   <a href="#" class="nav-link active" aria-current="page">
@@ -57,13 +65,31 @@
                 </li>
               </ul>
 
-            <ul class="list-unstyled CTAs mt-2">
+              {{-- awal kondisi tombol session login --}}
+              <ul class="list-unstyled CTAs mt-2">
+            @auth
+            
                 <li>
-                    <a class="btn btn-primary fs-9" href="{{ route('create-admin') }}">
-                        <i class="bi bi-box-arrow-in-right" style="font-size: 15px"></i> Login</a>
+                    <form action="{{ route('post-logout') }}" method="POST">
+                        @csrf
+                        <button class="btn btn-danger">Log Out</button>
+                    </form>
                 </li>
-            </ul>
+                
+
+                @else
+                
+                    <li>
+                        <a class="btn btn-primary fs-9" href="{{ route('index-login') }}">
+                            <i class="bi bi-box-arrow-in-right" style="font-size: 15px"></i> Login</a>
+                    </li>
+                
+            @endauth
+        </ul>
+        {{-- akhir kondisi tombol session login --}}
         </nav>
+    </div>
+    <!-- akhir sidebar  -->
 
         <!-- awal konten -->
         <div id="content">
@@ -107,7 +133,7 @@
                                     <td>{{ $admin->nama_admin }}</td>
                                     <td>{{ $admin->username_admin }}</td>
                                     <td>{{ $admin->password_admin }}</td>
-                                    {{-- <a class="btn btn-warning edit" href="{{ route('edit-admin', $admin->id_admin) }}"><i class="bi bi-pencil-square"></i> Edit</a> --}}
+                                    {{-- <td><a class="btn btn-warning edit" href="{{ route('edit-admin', $admin->id_admin) }}"><i class="bi bi-pencil-square"></i> Edit</a> --}}
                                     <td><a class="btn btn-warning edit" href="#" data-toggle="modal" data-target="#ModalEdit"><i class="bi bi-pencil-square"></i> Edit</a>
                                         <form action="{{ route('delete-admin', $admin->id_admin) }}" method="post" style="display:inline;">
                                             @csrf

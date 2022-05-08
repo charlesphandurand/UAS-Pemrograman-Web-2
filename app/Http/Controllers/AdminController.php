@@ -22,6 +22,11 @@ class AdminController extends Controller
 
     public function store(Request $request){
         Admin::create($request->all());
+        // $request->validate([
+        //     'nama_admin' => 'required|max:255',
+        //     'username_admin' => ['required', 'min:3', 'max:255', 'unique:admin'],
+        //     'password_admin' => ['required|min:5|max:255']
+        // ]);
         return redirect()->route('browse-admin');
     }
 

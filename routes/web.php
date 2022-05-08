@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\GameController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,8 +25,17 @@ Route::get('/tes', function () {
     return view('tes');
 });
 
+// Login
+Route::get('/login', [LoginController::class, 'indexlogin'])->name('index-login')->middleware('guest');
+Route::post('/postlogin', [LoginController::class, 'postlogin'])->name('post-login');
+Route::post('/logout', [LoginController::class, 'postlogout'])->name('post-logout');
+
+// Register
+Route::get('/register', [RegisterController::class, 'indexregister'])->name('index-register')->middleware('guest');
+Route::post('/register/store', [RegisterController::class, 'storeregister'])->name('store-register');
+
 // Admin
-Route::get('/admin', [AdminController::class, 'index'])->name('index-admin');
+Route::get('/admin', [AdminController::class, 'index'])->name('index-admin')->middleware('auth');
 Route::get('/admin/mimin', [AdminController::class, 'mimin'])->name('browse-admin');
 Route::get('/admin/mimin/create', [AdminController::class, 'create'])->name('create-admin');
 
