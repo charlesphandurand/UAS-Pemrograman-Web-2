@@ -11,16 +11,16 @@
     <h1>Create</h1>
     <div class="container">
         <div class="row">
-    <form method="post" action="{{ route('store-admin') }}">
+    <form method="post" action="{{ route('store-user') }}">
         @csrf
-      <label for="nama_admin" class="form-label">Nama Admin</label>
-      <input type="text" class="form-control mb-3" name="nama_admin" id="nama_admin">
-      <label for="username_admin" class="form-label">Username Admin</label>
-      <input type="text" class="form-control mb-3" name="username_admin" id="username_admin">
-      <label for="password_admin" class="form-label">Password Admin</label>
-      <input type="password" class="form-control mb-3" name="password_admin" id="password_admin">
+      <label for="name" class="form-label">Name</label>
+      <input type="text" class="form-control mb-3" name="name" id="name">
+      <label for="username" class="form-label">Username</label>
+      <input type="text" class="form-control mb-3" name="username" id="username">
+      <label for="password" class="form-label">Password</label>
+      <input type="password" class="form-control mb-3" name="password" id="password">
       <button type="submit" class="btn btn-primary">Submit</button>
-      <a class="btn btn-primary" href="{{ route('browse-admin') }}">Batal</a>
+      <a class="btn btn-primary" href="{{ route('index-user') }}">Cancel</a>
     </div>
     </div>
 </form>
