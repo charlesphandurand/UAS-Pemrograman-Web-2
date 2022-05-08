@@ -8,7 +8,9 @@ class GameController extends Controller
 {
     public function indexgame(){
         $daftar_game = Game::all();
-        return view('game.index', compact('daftar_game'));
+        return view('game.index', compact('daftar_game'), [
+            "title" => "Games"
+        ]);
     }
 
     public function creategame(){

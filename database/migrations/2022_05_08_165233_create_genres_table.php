@@ -13,9 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('game', function (Blueprint $table) {
-            $table->increments('id_game');
-            $table->string('nama_game');
+        Schema::create('genres', function (Blueprint $table) {
+            $table->id();
+            $table->string('genre_name')->unique;
             $table->timestamps();
         });
     }
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('game');
+        Schema::dropIfExists('genres');
     }
 };

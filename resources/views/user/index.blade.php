@@ -45,9 +45,9 @@
                                         <td>{{ $user->name }}</td>
                                         <td>{{ $user->username }}</td>
                                         <td>{{ $user->password }}</td>
-                                        <td><a class="btn btn-warning edit" href="{{ route('edit-user', $user->id) }}"><i
-                                                    class="bi bi-pencil-square"></i> Edit</a>
-                                            {{-- <td><a class="btn btn-warning edit" href="#" data-toggle="modal" data-target="#ModalEdit"><i class="bi bi-pencil-square"></i> Edit</a> --}}
+                                        {{-- <td><a class="btn btn-warning edit" href="{{ route('edit-user', $user->id) }}"><i
+                                                    class="bi bi-pencil-square"></i> Edit</a> --}}
+                                            <td><a class="btn btn-warning edit" href="#" data-toggle="modal" data-target="#ModalEdit"><i class="bi bi-pencil-square"></i> Edit</a>
                                             <form action="{{ route('delete-user', $user->id) }}" method="post"
                                                 style="display:inline;">
                                                 @csrf
@@ -71,7 +71,7 @@
     <!-- akhir konten -->
 
     {{-- awal include modal --}}
-        @include('user.modal.create')
-        @include('user.modal.edit')
+    @include('user.modal.create')
+    @include('user.modal.edit')
     {{-- akhir include modal --}}
 @endsection

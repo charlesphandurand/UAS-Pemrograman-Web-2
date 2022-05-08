@@ -13,8 +13,10 @@
         <div class="row">
     <form method="post" action="{{ route('store-game') }}">
         @csrf
-      <label for="nama_game" class="form-label">Nama game</label>
-      <input type="text" class="form-control mb-3" name="nama_game" id="nama_game">
+      <label for="game_name" class="form-label">Game Name</label>
+      <input type="text" class="form-control mb-3" name="game_name" id="game_name">
+      <label for="genre_id" class="form-label">Genre ID</label>
+      <input type="text" class="form-control mb-3" name="genre_id" id="genre_id">
       <button type="submit" class="btn btn-primary">Submit</button>
       <a class="btn btn-primary" href="{{ route('index-game') }}">Batal</a>
     </div>

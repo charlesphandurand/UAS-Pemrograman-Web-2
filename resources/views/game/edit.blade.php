@@ -8,14 +8,16 @@
     <title>Sistem Informasi Games - Edit</title>
 </head>
 <body>
-    <h1>Edit</h1>
+    <h1>Edit {{ $game->genre->genre_name }}</h1>
     <div class="container">
         <div class="row">
-    <form method="post" action="{{ route('update-game', $game->id_game) }}">
+    <form method="post" action="{{ route('update-game', $game->id) }}">
         @csrf
         @method('PUT')
-      <label for="nama_game" class="form-label">Nama game</label>
-      <input type="text" class="form-control mb-3" name="nama_game" id="nama_game" value="{{ $game->nama_game }}">
+      <label for="game_name" class="form-label">Game Name</label>
+      <input type="text" class="form-control mb-3" name="game_name" id="game_name" value="{{ $game->game_name }}">
+      <label for="genre_id" class="form-label">Genre ID</label>
+      <input type="text" class="form-control mb-3" name="genre_id" id="genre_id" value="{{ $game->genre_id }}">
       <button type="submit" class="btn btn-primary">Submit</button>
       <a class="btn btn-primary" href="{{ route('index-game') }}">Batal</a>
     </div>

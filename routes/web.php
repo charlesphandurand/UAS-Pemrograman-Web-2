@@ -6,6 +6,7 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\GameController;
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,6 +38,7 @@ Route::post('/register/store', [RegisterController::class, 'storeregister'])->na
 
 // User
 Route::get('/user', [UserController::class, 'index'])->name('index-user')->middleware('auth');
+// Route::get('/user', [UserController::class, 'index'])->name('index-user')->middleware('guest');
 // Route::get('/user', [UserController::class, 'mimin'])->name('browse-user');
 Route::get('/user/create', [UserController::class, 'create'])->name('create-user');
 
@@ -50,9 +52,12 @@ Route::get('/game', [GameController::class, 'indexgame'])->name('index-game');
 Route::get('/game/create', [GameController::class, 'creategame'])->name('create-game');
 
 Route::post('/game/store', [GameController::class, 'storegame'])->name('store-game');
-Route::get('/game/edit/{id_game}', [GameController::class, 'editgame'])->name('edit-game');
-Route::put('/game/update/{id_game}', [GameController::class, 'updategame'])->name('update-game');
-Route::delete('/game/delete/{id_game}', [GameController::class, 'deletegame'])->name('delete-game');
+Route::get('/game/edit/{id}', [GameController::class, 'editgame'])->name('edit-game');
+Route::put('/game/update/{id}', [GameController::class, 'updategame'])->name('update-game');
+Route::delete('/game/delete/{id}', [GameController::class, 'deletegame'])->name('delete-game');
 
 // About
 Route::get('/about', [AboutController::class, 'indexabout'])->name('index-about');
+
+// Home
+Route::get('/home', [HomeController::class, 'indexhome'])->name('index-home');
