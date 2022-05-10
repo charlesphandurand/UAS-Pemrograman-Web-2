@@ -1,5 +1,4 @@
 @extends('layouts.main')
-
 @section('konten')
     <!-- awal konten -->
     <div id="content">
@@ -47,7 +46,8 @@
                                         <td>{{ $user->password }}</td>
                                         {{-- <td><a class="btn btn-warning edit" href="{{ route('edit-user', $user->id) }}"><i
                                                     class="bi bi-pencil-square"></i> Edit</a> --}}
-                                            <td><a class="btn btn-warning edit" href="#" data-toggle="modal" data-target="#ModalEdit"><i class="bi bi-pencil-square"></i> Edit</a>
+                                        <td><a class="btn btn-warning edit" href="#" data-toggle="modal"
+                                                data-target="#ModalEdit"><i class="bi bi-pencil-square"></i> Edit</a>
                                             <form action="{{ route('delete-user', $user->id) }}" method="post"
                                                 style="display:inline;">
                                                 @csrf

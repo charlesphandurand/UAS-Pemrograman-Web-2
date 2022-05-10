@@ -4,6 +4,7 @@
     <div id="content">
         {{-- awal table --}}
         <div class="container">
+
             <div class="card">
                 <div class="card-header bg-dark text-light">
                     <div class="row">
@@ -16,7 +17,6 @@
                         </div>
                         <div class="col-sm-4 d-flex flex-row-reverse bd-highlight">
                             <a class="btn btn-success" href="{{ route('create-game') }}">
-                                {{-- <a class="btn btn-success" href="#" data-toggle="modal" data-target="#ModalCreate"> --}}
                                 <i class="bi bi-plus-circle-fill" style="font-size: 15px"></i>
                                 Tambah</a>
                         </div>
@@ -30,6 +30,7 @@
                                     <th>Game ID</th>
                                     <th>Genre ID</th>
                                     <th>Game</th>
+                                    <th>Image</th>
                                     <th width="20%">Opsi</th>
                                 </tr>
                             </thead>
@@ -39,9 +40,14 @@
                                         <td>{{ $game->id }}</td>
                                         <td>{{ $game->genre_id }}</td>
                                         <td>{{ $game->game_name }}</td>
-                                        <td><a class="btn btn-warning edit" href="{{ route('edit-game', $game->id) }}"><i
-                                                    class="bi bi-pencil-square"></i> Edit</a>
-                                            {{-- <td><a class="btn btn-warning edit" href="#" data-toggle="modal" data-target="#ModalEdit"><i class="bi bi-pencil-square"></i> Edit</a> --}}
+                                        <td>
+                                            <div style="max-height: 350px; overflow: hidden;">
+                                                <img src="{{ asset('storage/' . $game->image) }}"
+                                                    alt="{{ $game->game_name }}">
+                                            </div>
+                                        </td>
+                                        <td><a class="btn btn-warning edit" href="{{ route('edit-game', $game->id) }}">
+                                                <i class="bi bi-pencil-square"></i> Edit</a>
                                             <form action="{{ route('delete-game', $game->id) }}" method="post"
                                                 style="display:inline;">
                                                 @csrf

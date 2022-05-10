@@ -61,13 +61,23 @@
     </script>
     {{-- akhir script untuk toggle button sidebar --}}
 
-    {{-- awal script untuk mereset form create --}}
+    {{-- awal script untuk preview image --}}
     <script>
-        $('#ModalCreate').on('hidden.bs.modal', function(e) {
-            $('#create').find("input[type=text], textarea, input[type=password]").val("");
-        })
+        function previewImage() {
+            const image = document.querySelector('#image');
+            const imgPreview = document.querySelector('.img-preview');
+
+            imgPreview.style.display = 'block';
+
+            const oFReader = new FileReader();
+            oFReader.readAsDataURL(image.files[0]);
+
+            oFReader.onload = function(oFREvent) {
+                imgPreview.src = oFREvent.target.result;
+            }
+        }
     </script>
-    {{-- akhir script untuk mereset form create --}}
+    {{-- akhir script untuk preview image --}}
 </body>
 
 </html>

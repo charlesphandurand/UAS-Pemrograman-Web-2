@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('genre_id');
             $table->string('game_name');
+            $table->string('image');
             $table->timestamps();
         });
     }

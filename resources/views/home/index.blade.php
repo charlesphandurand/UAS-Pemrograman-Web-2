@@ -26,6 +26,7 @@
                                     <th>#</th>
                                     <th>Game Name</th>
                                     <th>Genre</th>
+                                    <th>Image</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -34,6 +35,12 @@
                                         <td scope="row">{{ $loop->index + 1 }}</td>
                                         <td>{{ $game->game_name }}</td>
                                         <td>{{ $game->genre->genre_name }}</td>
+                                        <td>
+                                            <div style="max-height: 350px; overflow: hidden;">
+                                                <img src="{{ asset('storage/' . $game->image) }}"
+                                                    alt="{{ $game->game_name }}">
+                                            </div>
+                                        </td>
                                     </tr>
                                 @endforeach
                             </tbody>
