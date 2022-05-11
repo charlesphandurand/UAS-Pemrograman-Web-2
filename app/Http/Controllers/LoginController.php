@@ -8,17 +8,19 @@ use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
-    public function indexlogin(){
+    public function indexlogin()
+    {
         return view('login.index');
     }
 
-    public function postlogin(Request $request){
+    public function postlogin(Request $request)
+    {
         $credentials = $request->validate([
             'username' => 'required',
             'password' => 'required'
         ]);
 
-        if(Auth::attempt($credentials)){
+        if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
             return redirect()->intended(route('index-user'));
         }
@@ -26,10 +28,11 @@ class LoginController extends Controller
         return back()->with('loginError', 'Login failed!');
     }
 
-    public function postlogout(Request $request){
+    public function postlogout(Request $request)
+    {
         Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
-        return redirect()->route('index-login');
+        return redirect()->route('index-home');
     }
 }

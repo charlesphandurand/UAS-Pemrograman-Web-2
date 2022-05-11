@@ -8,7 +8,7 @@ class HomeController extends Controller
 {
     public function indexhome(){
         $daftar_game = Game::all();
-        return view('home.index', compact('daftar_game'), [
+        return view('welcome', compact('daftar_game'), [
             "title" => "Home"
         ]);
     }

@@ -47,7 +47,8 @@
                                         {{-- <td><a class="btn btn-warning edit" href="{{ route('edit-user', $user->id) }}"><i
                                                     class="bi bi-pencil-square"></i> Edit</a> --}}
                                         <td><a class="btn btn-warning edit" href="#" data-toggle="modal"
-                                                data-target="#ModalEdit"><i class="bi bi-pencil-square"></i> Edit</a>
+                                                data-target="#ModalEdit{{ $user->id }}"><i
+                                                    class="bi bi-pencil-square"></i> Edit</a>
                                             <form action="{{ route('delete-user', $user->id) }}" method="post"
                                                 style="display:inline;">
                                                 @csrf
@@ -58,6 +59,7 @@
                                             </form>
                                         </td>
                                     </tr>
+                                    @include('user.modal.edit')
                                 @endforeach
                             </tbody>
                         </table>
@@ -72,6 +74,6 @@
 
     {{-- awal include modal --}}
     @include('user.modal.create')
-    @include('user.modal.edit')
+    {{-- @include('user.modal.edit') --}}
     {{-- akhir include modal --}}
 @endsection

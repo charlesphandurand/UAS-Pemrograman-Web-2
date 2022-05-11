@@ -19,9 +19,10 @@ use App\Http\Controllers\HomeController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
 
 Route::get('/tes', function () {
     return view('tes');
@@ -60,4 +61,4 @@ Route::delete('/game/delete/{id}', [GameController::class, 'deletegame'])->name(
 Route::get('/about', [AboutController::class, 'indexabout'])->name('index-about');
 
 // Home
-Route::get('/home', [HomeController::class, 'indexhome'])->name('index-home');
+Route::get('/', [HomeController::class, 'indexhome'])->name('index-home');
