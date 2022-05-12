@@ -16,8 +16,8 @@
                             <h3>Data Users</h3>
                         </div>
                         <div class="col-sm-4 d-flex flex-row-reverse bd-highlight">
-                            {{-- <a class="btn btn-success" href="{{ route('create-user') }}"> --}}
-                            <a class="btn btn-success" href="#" data-toggle="modal" data-target="#ModalCreate">
+                            <a class="btn btn-success" href="{{ route('create-user') }}">
+                                {{-- <a class="btn btn-success" href="#" data-toggle="modal" data-target="#ModalCreate"> --}}
                                 <i class="bi bi-plus-circle-fill" style="font-size: 15px"></i>
                                 Tambah</a>
                         </div>
@@ -44,22 +44,18 @@
                                         <td>{{ $user->name }}</td>
                                         <td>{{ $user->username }}</td>
                                         <td>{{ $user->password }}</td>
-                                        {{-- <td><a class="btn btn-warning edit" href="{{ route('edit-user', $user->id) }}"><i
-                                                    class="bi bi-pencil-square"></i> Edit</a> --}}
-                                        <td><a class="btn btn-warning edit" href="#" data-toggle="modal"
-                                                data-target="#ModalEdit{{ $user->id }}"><i
-                                                    class="bi bi-pencil-square"></i> Edit</a>
-                                            <form action="{{ route('delete-user', $user->id) }}" method="post"
-                                                style="display:inline;">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="submit" class="btn btn-danger"
-                                                    onclick="return confirm('Yakin mau hapus?')"><i
-                                                        class="bi bi-trash3-fill"></i> Delete</button>
-                                            </form>
-                                        </td>
+                                        <td><a class="btn btn-warning edit" href="{{ route('edit-user', $user->id) }}">
+                                            <i class="bi bi-pencil-square"></i> Edit</a>
+                                        <form action="{{ route('delete-user', $user->id) }}" method="post"
+                                            style="display:inline;">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-danger"
+                                                onclick="return confirm('Yakin mau hapus?')"><i
+                                                    class="bi bi-trash3-fill"></i> Delete</button>
+                                        </form>
+                                    </td>
                                     </tr>
-                                    @include('user.modal.edit')
                                 @endforeach
                             </tbody>
                         </table>
@@ -71,9 +67,4 @@
     </div>
     </div>
     <!-- akhir konten -->
-
-    {{-- awal include modal --}}
-    @include('user.modal.create')
-    {{-- @include('user.modal.edit') --}}
-    {{-- akhir include modal --}}
 @endsection

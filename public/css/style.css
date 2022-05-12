@@ -71,6 +71,12 @@ a:focus {
     .lebar-form{
         width: 40%;
     }
+
+    .card-img-top {
+        width: 100%;
+        max-height: 13vw;
+        object-fit: cover;
+    }
 }
 
 /* style form login */

@@ -13,10 +13,10 @@
                                 <i class="bi bi-layout-text-sidebar-reverse"></i></button>
                         </div>
                         <div class="col-sm-4">
-                            <h3>Data Games</h3>
+                            <h3>Data Studio</h3>
                         </div>
                         <div class="col-sm-4 d-flex flex-row-reverse bd-highlight">
-                            <a class="btn btn-success" href="{{ route('create-game') }}">
+                            <a class="btn btn-success" href="{{ route('create-studio') }}">
                                 <i class="bi bi-plus-circle-fill" style="font-size: 15px"></i>
                                 Tambah</a>
                         </div>
@@ -27,32 +27,19 @@
                         <table id="example" class="table table-striped" style="width:100%">
                             <thead>
                                 <tr>
-                                    <th>Game ID</th>
-                                    <th>Genre ID</th>
                                     <th>Studio ID</th>
-                                    <th>Platform ID</th>
-                                    <th>Game</th>
-                                    <th>Image</th>
+                                    <th>Studio Name</th>
                                     <th width="20%">Opsi</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($daftar_game as $game)
+                                @foreach ($daftar_studio as $studio)
                                     <tr>
-                                        <td>{{ $game->id }}</td>
-                                        <td>{{ $game->genre_id }}</td>
-                                        <td>{{ $game->studio_id }}</td>
-                                        <td>{{ $game->platform_id }}</td>
-                                        <td>{{ $game->game_name }}</td>
-                                        <td>
-                                            <div style="max-height: 350px; overflow: hidden;">
-                                                <img src="{{ asset('storage/' . $game->image) }}"
-                                                    alt="{{ $game->game_name }}">
-                                            </div>
-                                        </td>
-                                        <td><a class="btn btn-warning edit" href="{{ route('edit-game', $game->id) }}">
+                                        <td>{{ $studio->id }}</td>
+                                        <td>{{ $studio->studio_name }}</td>
+                                        <td><a class="btn btn-warning edit" href="{{ route('edit-studio', $studio->id) }}">
                                                 <i class="bi bi-pencil-square"></i> Edit</a>
-                                            <form action="{{ route('delete-game', $game->id) }}" method="post"
+                                            <form action="{{ route('delete-studio', $studio->id) }}" method="post"
                                                 style="display:inline;">
                                                 @csrf
                                                 @method('DELETE')

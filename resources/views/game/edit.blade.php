@@ -28,6 +28,12 @@
                         <label for="genre_id" class="form-label">Genre ID</label>
                         <input type="text" class="form-control mb-3" name="genre_id" id="genre_id"
                             value="{{ $game->genre_id }}">
+                        <label for="studio_id" class="form-label">Studio ID</label>
+                        <input type="text" class="form-control mb-3" name="studio_id" id="studio_id"
+                            value="{{ $game->studio_id }}">
+                        <label for="platform_id" class="form-label">Platform ID</label>
+                        <input type="text" class="form-control mb-3" name="platform_id" id="platform_id"
+                            value="{{ $game->platform_id }}">
                         <label for="image" class="form-label">Upload Image</label>
                         <input type="hidden" name="oldImage" value="{{ $game->image }}">
                         @if ($game->image)

@@ -5,6 +5,9 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\GameController;
+use App\Http\Controllers\GenreController;
+use App\Http\Controllers\StudioController;
+use App\Http\Controllers\PlatformController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\HomeController;
 
@@ -39,8 +42,6 @@ Route::post('/register/store', [RegisterController::class, 'storeregister'])->na
 
 // User
 Route::get('/user', [UserController::class, 'index'])->name('index-user')->middleware('auth');
-// Route::get('/user', [UserController::class, 'index'])->name('index-user')->middleware('guest');
-// Route::get('/user', [UserController::class, 'mimin'])->name('browse-user');
 Route::get('/user/create', [UserController::class, 'create'])->name('create-user');
 
 Route::post('/user/store', [UserController::class, 'store'])->name('store-user');
@@ -57,8 +58,39 @@ Route::get('/game/edit/{id}', [GameController::class, 'editgame'])->name('edit-g
 Route::put('/game/update/{id}', [GameController::class, 'updategame'])->name('update-game');
 Route::delete('/game/delete/{id}', [GameController::class, 'deletegame'])->name('delete-game');
 
-// About
-Route::get('/about', [AboutController::class, 'indexabout'])->name('index-about');
+// Genre
+Route::get('/genre_admin', [GenreController::class, 'indexgenre'])->name('index-genre');
+Route::get('/genre_admin/create', [GenreController::class, 'creategenre'])->name('create-genre');
+
+Route::post('/genre_admin/store', [GenreController::class, 'storegenre'])->name('store-genre');
+Route::get('/genre_admin/edit/{id}', [GenreController::class, 'editgenre'])->name('edit-genre');
+Route::put('/genre_admin/update/{id}', [GenreController::class, 'updategenre'])->name('update-genre');
+Route::delete('/genre_admin/delete/{id}', [GenreController::class, 'deletegenre'])->name('delete-genre');
+
+// Studio
+Route::get('/studio_admin', [StudioController::class, 'indexstudio'])->name('index-studio');
+Route::get('/studio_admin/create', [StudioController::class, 'createstudio'])->name('create-studio');
+
+Route::post('/studio_admin/store', [StudioController::class, 'storestudio'])->name('store-studio');
+Route::get('/studio_admin/edit/{id}', [StudioController::class, 'editstudio'])->name('edit-studio');
+Route::put('/studio_admin/update/{id}', [StudioController::class, 'updatestudio'])->name('update-studio');
+Route::delete('/studio_admin/delete/{id}', [StudioController::class, 'deletestudio'])->name('delete-studio');
+
+// Platform
+Route::get('/platform_admin', [PlatformController::class, 'indexplatform'])->name('index-platform');
+Route::get('/platform_admin/create', [PlatformController::class, 'createplatform'])->name('create-platform');
+
+Route::post('/platform_admin/store', [PlatformController::class, 'storeplatform'])->name('store-platform');
+Route::get('/platform_admin/edit/{id}', [PlatformController::class, 'editplatform'])->name('edit-platform');
+Route::put('/platform_admin/update/{id}', [PlatformController::class, 'updateplatform'])->name('update-platform');
+Route::delete('/platform_admin/delete/{id}', [PlatformController::class, 'deleteplatform'])->name('delete-platform');
+
+// About Admin
+Route::get('/about_admin', [AboutController::class, 'indexabout'])->name('index-about');
 
 // Home
 Route::get('/', [HomeController::class, 'indexhome'])->name('index-home');
+Route::get('/genre', [HomeController::class, 'genre'])->name('genre');
+Route::get('/genre/{genre:genre_name}', [HomeController::class, 'subgenre'])->name('sub-genre');
+Route::get('/about', [HomeController::class, 'about'])->name('about');
+Route::get('/{posts:game_name}', [HomeController::class, 'postsgame'])->name('posts-game');

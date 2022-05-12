@@ -1,6 +1,5 @@
 @extends('layouts.main')
 @section('konten')
-
     <!-- awal konten -->
     <div id="content">
         {{-- awal table --}}
@@ -14,22 +13,18 @@
                                 <i class="bi bi-layout-text-sidebar-reverse"></i></button>
                         </div>
                         <div class="col-sm-4">
-                            <h3>Add User</h3>
+                            <h3>Add Platform</h3>
                         </div>
                     </div>
                 </div>
                 <div class="card-body">
                     {{-- awal modal form create --}}
-                    <form method="post" action="{{ route('store-user') }}" id="create" enctype="multipart/form-data">
+                    <form method="post" action="{{ route('store-platform') }}" id="create" enctype="multipart/form-data">
                         @csrf
-                        <label for="name" class="form-label">Name</label>
-                        <input type="text" class="form-control mb-3" name="name" id="name">
-                        <label for="username" class="form-label">Username</label>
-                        <input type="text" class="form-control mb-3" name="username" id="username">
-                        <label for="password" class="form-label">Password</label>
-                        <input type="password" class="form-control mb-3" name="password" id="password">
+                        <label for="platform_name" class="form-label">Platform Name</label>
+                        <input type="text" class="form-control mb-3" name="platform_name" id="platform_name">
                         <div class="mt-3 float-end">
-                            <a class="btn btn-primary" href="{{ route('index-user') }}">Cancel</a>
+                            <a class="btn btn-primary" href="{{ route('index-platform') }}">Cancel</a>
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </div>
                     </form>

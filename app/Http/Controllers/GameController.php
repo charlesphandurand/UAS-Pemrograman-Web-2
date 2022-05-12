@@ -26,7 +26,9 @@ class GameController extends Controller
     public function storegame(Request $request)
     {
         $validateData = $request->validate([
-            'genre_id' => 'required|max:255',
+            'genre_id' => 'required',
+            'studio_id' => 'required',
+            'platform_id' => 'required',
             'game_name' => 'required|max:255',
             'image' => 'image|file|max:5120'
         ]);

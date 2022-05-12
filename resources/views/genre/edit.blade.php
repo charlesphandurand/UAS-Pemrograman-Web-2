@@ -13,25 +13,20 @@
                                 <i class="bi bi-layout-text-sidebar-reverse"></i></button>
                         </div>
                         <div class="col-sm-4">
-                            <h3>Edit Data User Ke-{{ $user->id }}</h3>
+                            <h3>Edit {{ $genre->genre_name }}</h3>
                         </div>
                     </div>
                 </div>
                 <div class="card-body">
                     {{-- awal modal form edit --}}
-                    <form method="post" action="{{ route('update-user', $user->id) }}" enctype="multipart/form-data">
+                    <form method="post" action="{{ route('update-genre', $genre->id) }}" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
-                        <label for="name" class="form-label">Name</label>
-                        <input type="text" class="form-control mb-3" name="name" id="name" value="{{ $user->name }}">
-                        <label for="username" class="form-label">Username</label>
-                        <input type="text" class="form-control mb-3" name="username" id="username"
-                            value="{{ $user->username }}">
-                        <label for="password" class="form-label">Password</label>
-                        <input type="text" class="form-control mb-3" name="password" id="password"
-                            value="{{ $user->password }}">
+                        <label for="genre_name" class="form-label">Game Name</label>
+                        <input type="text" class="form-control mb-3" name="genre_name" id="genre_name"
+                            value="{{ $genre->genre_name }}">
                         <div class="mt-3 float-end">
-                            <a class="btn btn-primary" href="{{ route('index-user') }}">Cancel</a>
+                            <a class="btn btn-primary" href="{{ route('index-genre') }}">Cancel</a>
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </div>
                     </form>

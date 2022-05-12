@@ -25,6 +25,10 @@
                         <input type="text" class="form-control mb-3" name="game_name" id="game_name">
                         <label for="genre_id" class="form-label">Genre ID</label>
                         <input type="text" class="form-control mb-3" name="genre_id" id="genre_id">
+                        <label for="studio_id" class="form-label">Studio ID</label>
+                        <input type="text" class="form-control mb-3" name="studio_id" id="studio_id">
+                        <label for="platform_id" class="form-label">Platform ID</label>
+                        <input type="text" class="form-control mb-3" name="platform_id" id="platform_id">
                         <label for="image" class="form-label">Upload Image</label>
                         <img class="img-preview img-fluid mb-3">
                         <input class="form-control @error('image') is-invalid @enderror" type="file" id="image" name="image"
