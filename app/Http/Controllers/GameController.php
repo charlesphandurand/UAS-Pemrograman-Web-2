@@ -32,7 +32,8 @@ class GameController extends Controller
             'game_name' => 'required|max:255',
             'image' => 'image|file|max:5120'
         ]);
-        $validateData['image'] = $request->file('image')->store('post-images');
+        // $request->file('image')->store('public');
+        $validateData['image'] = $request->file('image')->store('');
         Game::create($validateData);
         return redirect()->route('index-game');
     }
@@ -55,7 +56,8 @@ class GameController extends Controller
         if ($request->oldImage){
             Storage::delete($request->oldImage);
         }
-        $validateData['image'] = $request->file('image')->store('post-images');
+        // $request->file('image')->store('public');
+        $validateData['image'] = $request->file('image')->store('');
         $game = Game::find($id);
         $game->update($validateData);
         return redirect()->route('index-game');
@@ -66,6 +68,8 @@ class GameController extends Controller
         $game = Game::find($id);
         if ($game->image){
             Storage::delete($game->image);
+            // Storage::delete('public/'.$game->image);
+            Storage::delete('storage/'.$game->image);
         }
         $game->delete();
         return redirect()->route('index-game');
