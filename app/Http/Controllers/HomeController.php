@@ -37,7 +37,7 @@ class HomeController extends Controller
         ]);
     }
 
-    
+
     // fungsi untuk mengembalikan nama game di link
     public function postsgame(Game $posts)
     {
@@ -50,7 +50,7 @@ class HomeController extends Controller
     public function genre()
     {
         $daftar_genre = Genre::all();
-        return view('genre', compact('daftar_genre'), [
+        return view('listgenre', compact('daftar_genre'), [
             "title" => "Genre"
         ]);
     }
@@ -66,6 +66,8 @@ class HomeController extends Controller
 
     public function about()
     {
-        return view('about');
+        return view('about',[
+            "title" => "About"
+        ]);
     }
 }

@@ -14,7 +14,7 @@
     <title>Games | {{ $title }}</title>
 </head>
 
-<body style="background-color: rgba(0, 0, 0, 0.466)">
+<body>
 
     {{-- awal navbar --}}
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top fw-bold">
@@ -62,7 +62,7 @@
 
     @yield('konten')
 
-    <!-- Footer -->
+    {{--<!-- Footer -->
     <section class="footer p-5 bg-dark text-white" id="footer" name="footer"
         style="position: absolute; width:100%; left: 0;">
         <div class="container">
@@ -74,9 +74,20 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section>--}}
     <!-- Akhir Footer -->
-
+    <footer class="footer mt-5 p-5 bg-dark text-white " id="footer" name="footer"
+        style="position: sticky; left:0; right:0; width:100%; top:100%">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-sm-12">
+                    <p>&copy;2022 <a href="#" class="text-decoration-none"><b>Charles Phandurand - Maulana</b></a>
+                    <p>Made with <i class="bi bi-heart-fill text-danger"></i> using <b>Laravel and Bootstrap</b></p>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
     </script>
