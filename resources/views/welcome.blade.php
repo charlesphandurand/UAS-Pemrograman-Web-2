@@ -12,21 +12,21 @@
         </div>
 
         @if ($daftar_game->count())
-            <div class="row justify-content-md-center mb-5">
 
                 {{-- awal perulangan grid system pada card --}}
-                <?php $numOfCols = 3; $rowCount = 0; $bootstrapColWidth = 12 / $numOfCols; 
+                <?php $numOfCols = 3; $rowCount = 0; $bootstrapColWidth = 12 / $numOfCols;
                 foreach ($daftar_game as $game){ if($rowCount % $numOfCols == 0) { ?>
                 <div class="row"> <?php } $rowCount++; ?>
                     <div class="col-md-<?php echo $bootstrapColWidth; ?>">
+
                         {{-- awal card --}}
-                        <div class="card mb-3" style="width: 105%;">
+                        <div class="card mb-3" style="width: 100%;">
                             <div class="row g-0">
                                 <div style="col-md-12">
                                     <img src="{{ asset('storage/' . $game->image) }}" alt="{{ $game->game_name }}"
                                         class="card-img-top">
                                 </div>
-                                <div class="col-md-8" style="width: 105%;">
+                                <div class="col-md-8" style="width: 100%;">
                                     <div class="card-body">
                                         <h5 class="card-title"><a class="text-decoration-none"
                                                 href="{{ route('posts-game', $game->game_name) }}">{{ $game->game_name }}</a>
@@ -47,6 +47,7 @@
                             </div>
                         </div>
                         {{-- akhir card --}}
+
                     </div>
                     <?php if($rowCount % $numOfCols == 0) { ?>
                 </div> <?php } } ?>
@@ -57,4 +58,5 @@
         <div class="d-flex justify-content-end">{{ $daftar_game->links() }}</div>
     </div>
     </div>
+
 @endsection
