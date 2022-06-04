@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Game;
+use App\Models\Genre;
+use App\Models\Studio;
+use App\Models\Platform;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -18,7 +21,10 @@ class GameController extends Controller
 
     public function creategame()
     {
-        return view('game.create', [
+        $daftar_genre = Genre::all();
+        $daftar_studio = Studio::all();
+        $daftar_platform = Platform::all();
+        return view('game.create', compact('daftar_genre', 'daftar_studio', 'daftar_platform'), [
             "title" => "Add Game"
         ]);
     }
@@ -32,16 +38,18 @@ class GameController extends Controller
             'game_name' => 'required|max:255',
             'image' => 'image|file|max:5120'
         ]);
-        $request->file('image')->store('public');
-        $validateData['image'] = $request->file('image')->store('');
+        $validateData['image'] = $request->file('image')->store('post-images');
         Game::create($validateData);
         return redirect()->route('index-game');
     }
 
     public function editgame($id)
     {
+        $daftar_genre = Genre::all();
+        $daftar_studio = Studio::all();
+        $daftar_platform = Platform::all();
         $game = Game::find($id);
-        return view('game.edit', compact('game'), [
+        return view('game.edit', compact('game', 'daftar_genre', 'daftar_studio', 'daftar_platform'), [
             "title" => "Edit Game"
         ]);
     }
@@ -58,8 +66,7 @@ class GameController extends Controller
         if ($request->oldImage){
             Storage::delete($request->oldImage);
         }
-        $request->file('image')->store('public');
-        $validateData['image'] = $request->file('image')->store('');
+        $validateData['image'] = $request->file('image')->store('post-images');
         $game = Game::find($id);
         $game->update($validateData);
         return redirect()->route('index-game');
@@ -70,8 +77,6 @@ class GameController extends Controller
         $game = Game::find($id);
         if ($game->image){
             Storage::delete($game->image);
-            Storage::delete('public/'.$game->image);
-            Storage::delete('storage/'.$game->image);
         }
         $game->delete();
         return redirect()->route('index-game');

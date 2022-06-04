@@ -18,7 +18,7 @@ return new class extends Migration
             $table->foreignId('genre_id');
             $table->foreignId('studio_id');
             $table->foreignId('platform_id');
-            $table->string('game_name');
+            $table->string('game_name')->unique;
             $table->string('image');
             $table->timestamps();
         });

@@ -25,19 +25,41 @@
                         <label for="game_name" class="form-label">Game Name</label>
                         <input type="text" class="form-control mb-3" name="game_name" id="game_name"
                             value="{{ $game->game_name }}">
-                        <label for="genre_id" class="form-label">Genre ID</label>
-                        <input type="text" class="form-control mb-3" name="genre_id" id="genre_id"
-                            value="{{ $game->genre_id }}">
-                        <label for="studio_id" class="form-label">Studio ID</label>
-                        <input type="text" class="form-control mb-3" name="studio_id" id="studio_id"
-                            value="{{ $game->studio_id }}">
-                        <label for="platform_id" class="form-label">Platform ID</label>
-                        <input type="text" class="form-control mb-3" name="platform_id" id="platform_id"
-                            value="{{ $game->platform_id }}">
+                        <label for="genre_id" class="form-label">Genre</label>
+                        <select class="form-select mb-3" name="genre_id">
+                            @foreach ($daftar_genre as $genre)
+                                @if (old('id', $game->genre_id) == $genre->id)
+                                    <option value="{{ $genre->id }}" selected>{{ $genre->id }} - {{ $genre->genre_name }}</option>
+                                @else
+                                    <option value="{{ $genre->id }}">{{ $genre->id }} - {{ $genre->genre_name }}</option>
+                                @endif
+                            @endforeach
+                        </select>
+                        <label for="studio_id" class="form-label">Studio</label>
+                        <select class="form-select mb-3" name="studio_id">
+                            @foreach ($daftar_studio as $studio)
+                                @if (old('id', $game->studio_id) == $studio->id)
+                                    <option value="{{ $studio->id }}" selected>{{ $studio->id }} - {{ $studio->studio_name }}</option>
+                                @else
+                                    <option value="{{ $studio->id }}">{{ $studio->id }} - {{ $studio->studio_name }}</option>
+                                @endif
+                            @endforeach
+                        </select>
+                        <label for="platform_id" class="form-label">Platform</label>
+                        <select class="form-select mb-3" name="platform_id">
+                            @foreach ($daftar_platform as $platform)
+                                @if (old('id', $game->platform_id) == $platform->id)
+                                    <option value="{{ $platform->id }}" selected>{{ $platform->id }} - {{ $platform->platform_name }}</option>
+                                @else
+                                    <option value="{{ $platform->id }}">{{ $platform->id }} - {{ $platform->platform_name }}</option>
+                                @endif
+                            @endforeach
+                        </select>
                         <label for="image" class="form-label">Upload Image</label>
                         <input type="hidden" name="oldImage" value="{{ $game->image }}">
                         @if ($game->image)
-                            <img src="{{ asset('storage/' . $game->image) }}" class="img-preview img-fluid mb-3 d-block">
+                            <img src="{{ asset('storage/' . $game->image) }}"
+                                class="img-preview img-fluid mb-3 d-block col-sm-5">
                         @else
                             <img class="img-preview img-fluid mb-3">
                         @endif
