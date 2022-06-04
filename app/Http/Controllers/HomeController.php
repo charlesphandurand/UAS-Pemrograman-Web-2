@@ -55,6 +55,7 @@ class HomeController extends Controller
         ]);
     }
 
+    // yg bujur
     public function subgenre(Genre $genre)
     {
         return view('genre', [
@@ -63,6 +64,16 @@ class HomeController extends Controller
             "genre" => $genre->genre_name
         ]);
     }
+
+    // public function subgenre(Genre $genre)
+    // {
+    //     $game = Game::paginate(6)->withQueryString();
+    //     return view('genre', compact('game'), [
+    //         "title" => $genre->genre_name,
+    //         "game" => $genre->game,
+    //         "genre" => $genre->genre_name
+    //     ]);
+    // }
 
     public function about()
     {

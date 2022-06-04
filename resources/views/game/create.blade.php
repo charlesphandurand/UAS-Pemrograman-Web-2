@@ -23,14 +23,26 @@
                         @csrf
                         <label for="game_name" class="form-label">Game Name</label>
                         <input type="text" class="form-control mb-3" name="game_name" id="game_name">
-                        <label for="genre_id" class="form-label">Genre ID</label>
-                        <input type="text" class="form-control mb-3" name="genre_id" id="genre_id">
-                        <label for="studio_id" class="form-label">Studio ID</label>
-                        <input type="text" class="form-control mb-3" name="studio_id" id="studio_id">
-                        <label for="platform_id" class="form-label">Platform ID</label>
-                        <input type="text" class="form-control mb-3" name="platform_id" id="platform_id">
+                        <label for="genre_id" class="form-label">Genre</label>
+                        <select class="form-select mb-3" name="genre_id">
+                            @foreach ($daftar_genre as $genre)
+                                <option value="{{ $genre->id }}">{{ $genre->id }} - {{ $genre->genre_name }}</option>
+                            @endforeach
+                        </select>
+                        <label for="studio_id" class="form-label">Studio</label>
+                        <select class="form-select mb-3" name="studio_id">
+                            @foreach ($daftar_studio as $studio)
+                                <option value="{{ $studio->id }}">{{ $studio->id }} - {{ $studio->studio_name }}</option>
+                            @endforeach
+                        </select>
+                        <label for="platform_id" class="form-label">Platform</label>
+                        <select class="form-select mb-3" name="platform_id">
+                            @foreach ($daftar_platform as $platform)
+                                <option value="{{ $platform->id }}">{{ $platform->id }} - {{ $platform->platform_name }}</option>
+                            @endforeach
+                        </select>
                         <label for="image" class="form-label">Upload Image</label>
-                        <img class="img-preview img-fluid mb-3">
+                        <img class="img-preview img-fluid mb-3 col-sm-5">
                         <input class="form-control @error('image') is-invalid @enderror" type="file" id="image" name="image"
                             required onchange="previewImage()">
                         @error('image')

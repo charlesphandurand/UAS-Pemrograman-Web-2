@@ -45,7 +45,7 @@
                                         <td>{{ $game->platform_id }}</td>
                                         <td>{{ $game->game_name }}</td>
                                         <td>
-                                            <div style="max-height: 350px; overflow: hidden;">
+                                            <div style="max-height: 350px; max-width: 460px; overflow: hidden;">
                                                 <img src="{{ asset('storage/' . $game->image) }}"
                                                     alt="{{ $game->game_name }}">
                                             </div>

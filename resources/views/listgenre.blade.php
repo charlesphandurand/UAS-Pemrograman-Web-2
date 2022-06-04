@@ -10,12 +10,19 @@
 
         <div class="row">
             <div class="col-md-12">
-                @foreach ($daftar_genre as $genre)
-                    <ul>
-                        <li><a href="{{ route('sub-genre', $genre->genre_name) }}">{{ $genre->genre_name }}</a>
-                        </li>
-                    </ul>
-                @endforeach
+                <div class="row row-cols-2 row-cols-md-5 g-2 justify-content-center text-center">
+                    @foreach ($daftar_genre as $genre)
+                        <div class="col">
+                            <a href="{{ route('sub-genre', $genre->genre_name) }}" class="text-decoration-none">
+                            <div class="card" style=":hover: background-color">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ $genre->genre_name }}</h5>
+                                </div>
+                            </div>
+                        </a>
+                        </div>
+                    @endforeach
+                </div>
             </div>
         </div>
     </div>
