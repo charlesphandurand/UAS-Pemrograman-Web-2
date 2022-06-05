@@ -71,6 +71,7 @@
                 $('a[aria-expanded=true]').attr('aria-expanded', 'false');
             });
         });
+        Trix.config.blockAttributes.default.tagName = 'p'
     </script>
     {{-- akhir script untuk toggle button sidebar --}}
 
@@ -89,6 +90,7 @@
                 imgPreview.src = oFREvent.target.result;
             }
         }
+
     </script>
     {{-- akhir script untuk preview image --}}
 

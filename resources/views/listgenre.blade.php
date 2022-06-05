@@ -13,12 +13,12 @@
                     @foreach ($daftar_genre as $genre)
                         <div class="col">
                             <a href="{{ route('sub-genre', $genre->genre_name) }}" class="text-decoration-none">
-                            <div class="card sentuh">
-                                <div class="card-body">
-                                    <h5 class="card-title satu">{{ $genre->genre_name }}</h5>
+                                <div class="card sentuh">
+                                    <div class="card-body">
+                                        <h5 class="card-title satu">{{ $genre->genre_name }}</h5>
+                                    </div>
                                 </div>
-                            </div>
-                        </a>
+                            </a>
                         </div>
                     @endforeach
                 </div>

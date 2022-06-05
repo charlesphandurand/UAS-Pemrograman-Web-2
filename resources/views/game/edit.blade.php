@@ -67,7 +67,9 @@
                             @endforeach
                         </select>
                         <label for="game_description" class="form-label">Description</label>
-                        <input name="game_description" id="game_description" type="hidden" name="content" class="form-control @error('game_description') is-invalid @enderror" value="{{ $game->game_description }}">
+                        <input name="game_description" id="game_description" type="hidden" name="content"
+                            class="form-control @error('game_description') is-invalid @enderror"
+                            value="{{ $game->game_description }}">
                         <trix-editor input="game_description"></trix-editor>
                         @error('game_description')
                             <div class="invalid-feedback">
