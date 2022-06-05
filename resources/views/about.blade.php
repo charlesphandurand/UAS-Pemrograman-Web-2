@@ -1,6 +1,6 @@
 @extends('layouts.home')
 @section('konten')
-    <div class="container" style="margin-top: 70px; margin-bottom: 30px;">
+    <div class="container" style="margin-top: 70px;">
         <div class="row text-center mb-3">
             <div class="col-sm-12">
                 <h1>About</h1>
