@@ -92,5 +92,9 @@ Route::get('/about_admin', [AboutController::class, 'indexabout'])->name('index-
 Route::get('/', [HomeController::class, 'indexhome'])->name('index-home');
 Route::get('/genre', [HomeController::class, 'genre'])->name('genre');
 Route::get('/genre/{genre:genre_name}', [HomeController::class, 'subgenre'])->name('sub-genre');
+Route::get('/studio', [HomeController::class, 'studio'])->name('studio');
+Route::get('/studio/{studio:studio_name}', [HomeController::class, 'substudio'])->name('sub-studio');
+Route::get('/platform', [HomeController::class, 'platform'])->name('platform');
+Route::get('/platform/{platform:platform_name}', [HomeController::class, 'subplatform'])->name('sub-platform');
 Route::get('/about', [HomeController::class, 'about'])->name('about');
 Route::get('/{posts:game_name}', [HomeController::class, 'postsgame'])->name('posts-game');

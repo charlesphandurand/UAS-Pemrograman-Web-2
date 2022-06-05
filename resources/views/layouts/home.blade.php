@@ -12,6 +12,15 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <title>Games | {{ $title }}</title>
+    <style>
+        .sentuh:hover {
+            color: rgb(24, 255, 236);
+            background-color: rgb(148, 44, 247);
+        }
+        .gambar:hover{
+            opacity: 0.5;
+        }
+    </style>
 </head>
 
 <body>
@@ -39,11 +48,13 @@
                         <a class="nav-link @if (Request::segment(1) == 'genre') active @endif" aria-current="page"
                             href="{{ route('genre') }}">Genre</a>
                     </li>
-                    <li class="nav-item @if (Request::segment(1) == 'studio') active @endif">
-                        <a class="nav-link" aria-current="page" href="#">Studio</a>
+                    <li class="nav-item">
+                        <a class="nav-link @if (Request::segment(1) == 'studio') active @endif" aria-current="page"
+                            href="{{ route('studio') }}">Studio</a>
                     </li>
-                    <li class="nav-item @if (Request::segment(1) == 'platform') active @endif">
-                        <a class="nav-link" aria-current="page" href="#">Platform</a>
+                    <li class="nav-item">
+                        <a class="nav-link @if (Request::segment(1) == 'platform') active @endif" aria-current="page"
+                            href="{{ route('platform') }}">Platform</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link @if (Request::segment(1) == 'about') active @endif" aria-current="page"
@@ -52,19 +63,19 @@
                 </ul>
 
                 @auth
-                <div class="d-flex">
-                    <a class="btn btn-primary fs-9" href="{{ route('index-user') }}">
-                        <i class="bi bi-arrow-return-right" style="font-size: 15px"></i> Return to Dashboard</a>
+                    <div class="d-flex">
+                        <a class="btn btn-primary fs-9" href="{{ route('index-user') }}">
+                            <i class="bi bi-arrow-return-right" style="font-size: 15px"></i> Return to Dashboard</a>
                         <form action="{{ route('post-logout') }}" method="POST" class="ps-3">
                             @csrf
                             <button class="btn btn-danger"><i class="bi bi-power pe-2"></i>Log Out</button>
                         </form>
                     </div>
                 @else
-                <div class="d-flex">
-                    <a class="btn btn-primary fs-9" href="{{ route('index-login') }}">
-                        <i class="bi bi-box-arrow-in-right" style="font-size: 15px"></i> Login</a>
-                </div>
+                    <div class="d-flex">
+                        <a class="btn btn-primary fs-9" href="{{ route('index-login') }}">
+                            <i class="bi bi-box-arrow-in-right" style="font-size: 15px"></i> Login</a>
+                    </div>
                 @endauth
             </div>
         </div>

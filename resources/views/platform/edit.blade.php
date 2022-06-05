@@ -19,13 +19,19 @@
                 </div>
                 <div class="card-body">
                     {{-- awal modal form edit --}}
-                    <form method="post" action="{{ route('update-platform', $platform->id) }}" enctype="multipart/form-data">
+                    <form method="post" action="{{ route('update-platform', $platform->id) }}"
+                        enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
                         <label for="platform_name" class="form-label">Platform Name</label>
-                        <input type="text" class="form-control mb-3" name="platform_name" id="platform_name"
+                        <input type="text" class="form-control @error('platform_name') is-invalid @enderror" name="platform_name" id="platform_name"
                             value="{{ $platform->platform_name }}">
-                        <div class="mt-3 float-end">
+                        @error('platform_name')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                        <div class="mt-4 float-end">
                             <a class="btn btn-primary" href="{{ route('index-platform') }}">Cancel</a>
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </div>

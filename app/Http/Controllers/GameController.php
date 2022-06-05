@@ -36,7 +36,7 @@ class GameController extends Controller
             'studio_id' => 'required',
             'platform_id' => 'required',
             'game_name' => 'required|max:255',
-            'image' => 'image|file|max:5120'
+            'image' => 'required|image|file|max:5120'
         ]);
         $validateData['image'] = $request->file('image')->store('post-images');
         Game::create($validateData);

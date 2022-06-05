@@ -28,7 +28,7 @@ class GenreController extends Controller
             'genre_name' => 'required|max:255',
         ]);
         Genre::create($validateData);
-        return redirect()->route('index-genre');
+        return redirect()->route('index-genre')->with('success', 'Game has been added!');
     }
 
     public function editgenre($id)

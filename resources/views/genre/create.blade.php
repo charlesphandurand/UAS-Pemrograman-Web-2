@@ -22,8 +22,14 @@
                     <form method="post" action="{{ route('store-genre') }}" id="create" enctype="multipart/form-data">
                         @csrf
                         <label for="genre_name" class="form-label">Genre Name</label>
-                        <input type="text" class="form-control mb-3" name="genre_name" id="genre_name">
-                        <div class="mt-3 float-end">
+                        <input type="text" class="form-control @error('genre_name') is-invalid @enderror" name="genre_name"
+                            id="genre_name" autofocus>
+                        @error('genre_name')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                        <div class="mt-4 float-end">
                             <a class="btn btn-primary" href="{{ route('index-genre') }}">Cancel</a>
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </div>

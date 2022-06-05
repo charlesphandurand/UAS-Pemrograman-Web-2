@@ -23,13 +23,29 @@
                         @csrf
                         @method('PUT')
                         <label for="name" class="form-label">Name</label>
-                        <input type="text" class="form-control mb-3" name="name" id="name" value="{{ $user->name }}">
-                        <label for="username" class="form-label">Username</label>
-                        <input type="text" class="form-control mb-3" name="username" id="username"
-                            value="{{ $user->username }}">
-                        <label for="password" class="form-label">Password</label>
-                        <input type="text" class="form-control mb-3" name="password" id="password"
-                            value="{{ $user->password }}">
+                        <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" id="name"
+                            value="{{ $user->name }}">
+                        @error('name')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                        <label for="username" class="form-label mt-3">Username</label>
+                        <input type="text" class="form-control @error('username') is-invalid @enderror" name="username"
+                            id="username" value="{{ $user->username }}">
+                        @error('username')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                        <label for="password" class="form-label mt-3">Password</label>
+                        <input type="text" class="form-control @error('password') is-invalid @enderror" name="password"
+                            id="password" value="{{ $user->password }}">
+                        @error('password')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
                         <div class="mt-3 float-end">
                             <a class="btn btn-primary" href="{{ route('index-user') }}">Cancel</a>
                             <button type="submit" class="btn btn-primary">Submit</button>

@@ -13,25 +13,28 @@ class UserController extends Controller
         ]);
     }
 
-    // public function mimin(){
-    //     $daftar_user = User::all();
-    //     return view('user.mimin', compact('daftar_user'));
-    // }
-
     public function create(){
         return view('user.create',[
             "title" => "Add User"
         ]);
     }
 
+    // public function store(Request $request){
+    //     User::create($request->all());
+    //     return redirect()->route('index-user');
+    // }
+
     public function store(Request $request){
-        User::create($request->all());
+        $validatedData = $request->validate([
+            'name' => 'required|min: 4|max:255',
+            'username' => ['required', 'min:3', 'max:255', 'unique:users'],
+            'password' => 'required|min:4|max:255'
+        ]);
+
+        $validatedData['password'] = bcrypt($validatedData['password']);
+
+        User::create($validatedData);
         return redirect()->route('index-user');
-        // $request->validate([
-        //     'nama_user' => 'required|max:255',
-        //     'username_user' => ['required', 'min:3', 'max:255', 'unique:user'],
-        //     'password_user' => ['required|min:5|max:255']
-        // ]);
     }
 
     public function edit($id){
@@ -41,9 +44,24 @@ class UserController extends Controller
         ]);
     }
 
+    // public function update(Request $request, $id){
+    //     $user = User::find($id);
+    //     $user->update($request->all());
+    //     return redirect()->route('index-user');
+    // }
+
     public function update(Request $request, $id){
+
+
+        $validatedData = $request->validate([
+            'name' => 'required|min: 4|max:255',
+            'username' => ['required', 'min:3', 'max:255'],
+            'password' => 'required|min:4|max:255'
+        ]);
+
+        $validatedData['password'] = bcrypt($validatedData['password']);
         $user = User::find($id);
-        $user->update($request->all());
+        $user->update($validatedData);
         return redirect()->route('index-user');
     }
 
