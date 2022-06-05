@@ -10,25 +10,11 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    // public function indexhome()
-    // {
-    //     $posts = Game::latest();
-    //     if (request('search')) {
-    //         $posts->where('game_name', 'like', '%' . request('search') . '%');
-    //     }
-
-    //     $daftar_game = Game::all();
-    //     return view('welcome', compact('daftar_game'), [
-    //         "title" => "Home",
-    //         "posts" => $posts->get()
-    //     ]);
-    // }
-
     public function indexhome(Request $request)
     {
         if ($request->has('search')) {
             $daftar_game = Game::where('game_name', 'LIKE', '%' . $request->search . '%')
-            ->orWhere('id', 'LIKE', '%' . $request->search . '%')->paginate(6)->withQueryString();
+                ->orWhere('id', 'LIKE', '%' . $request->search . '%')->paginate(6)->withQueryString();
         } else {
             $daftar_game = Game::paginate(6)->withQueryString();
         }
@@ -65,6 +51,7 @@ class HomeController extends Controller
         ]);
     }
 
+    // yg bujur, tpi pagination acak-acakan
     // public function subgenre(Genre $genre)
     // {
     //     $game = Game::paginate(6)->withQueryString();
@@ -75,9 +62,43 @@ class HomeController extends Controller
     //     ]);
     // }
 
+    public function studio()
+    {
+        $daftar_studio = Studio::all();
+        return view('liststudio', compact('daftar_studio'), [
+            "title" => "Studio"
+        ]);
+    }
+
+    public function substudio(Studio $studio)
+    {
+        return view('studio', [
+            "title" => $studio->studio_name,
+            "game" => $studio->game,
+            "studio" => $studio->studio_name
+        ]);
+    }
+
+    public function platform()
+    {
+        $daftar_platform = Platform::all();
+        return view('listplatform', compact('daftar_platform'), [
+            "title" => "Platform"
+        ]);
+    }
+
+    public function subplatform(Platform $platform)
+    {
+        return view('platform', [
+            "title" => $platform->platform_name,
+            "game" => $platform->game,
+            "platform" => $platform->platform_name
+        ]);
+    }
+
     public function about()
     {
-        return view('about',[
+        return view('about', [
             "title" => "About"
         ]);
     }

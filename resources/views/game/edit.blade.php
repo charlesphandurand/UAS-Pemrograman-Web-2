@@ -23,15 +23,22 @@
                         @csrf
                         @method('PUT')
                         <label for="game_name" class="form-label">Game Name</label>
-                        <input type="text" class="form-control mb-3" name="game_name" id="game_name"
-                            value="{{ $game->game_name }}">
-                        <label for="genre_id" class="form-label">Genre</label>
+                        <input type="text" class="form-control @error('game_name') is-invalid @enderror" name="game_name"
+                            id="game_name" value="{{ $game->game_name }}">
+                        @error('game_name')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                        <label for="genre_id" class="form-label mt-3">Genre</label>
                         <select class="form-select mb-3" name="genre_id">
                             @foreach ($daftar_genre as $genre)
                                 @if (old('id', $game->genre_id) == $genre->id)
-                                    <option value="{{ $genre->id }}" selected>{{ $genre->id }} - {{ $genre->genre_name }}</option>
+                                    <option value="{{ $genre->id }}" selected>{{ $genre->id }} -
+                                        {{ $genre->genre_name }}</option>
                                 @else
-                                    <option value="{{ $genre->id }}">{{ $genre->id }} - {{ $genre->genre_name }}</option>
+                                    <option value="{{ $genre->id }}">{{ $genre->id }} - {{ $genre->genre_name }}
+                                    </option>
                                 @endif
                             @endforeach
                         </select>
@@ -39,9 +46,11 @@
                         <select class="form-select mb-3" name="studio_id">
                             @foreach ($daftar_studio as $studio)
                                 @if (old('id', $game->studio_id) == $studio->id)
-                                    <option value="{{ $studio->id }}" selected>{{ $studio->id }} - {{ $studio->studio_name }}</option>
+                                    <option value="{{ $studio->id }}" selected>{{ $studio->id }} -
+                                        {{ $studio->studio_name }}</option>
                                 @else
-                                    <option value="{{ $studio->id }}">{{ $studio->id }} - {{ $studio->studio_name }}</option>
+                                    <option value="{{ $studio->id }}">{{ $studio->id }} -
+                                        {{ $studio->studio_name }}</option>
                                 @endif
                             @endforeach
                         </select>
@@ -49,9 +58,11 @@
                         <select class="form-select mb-3" name="platform_id">
                             @foreach ($daftar_platform as $platform)
                                 @if (old('id', $game->platform_id) == $platform->id)
-                                    <option value="{{ $platform->id }}" selected>{{ $platform->id }} - {{ $platform->platform_name }}</option>
+                                    <option value="{{ $platform->id }}" selected>{{ $platform->id }} -
+                                        {{ $platform->platform_name }}</option>
                                 @else
-                                    <option value="{{ $platform->id }}">{{ $platform->id }} - {{ $platform->platform_name }}</option>
+                                    <option value="{{ $platform->id }}">{{ $platform->id }} -
+                                        {{ $platform->platform_name }}</option>
                                 @endif
                             @endforeach
                         </select>

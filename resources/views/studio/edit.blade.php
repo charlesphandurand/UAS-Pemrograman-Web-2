@@ -23,9 +23,14 @@
                         @csrf
                         @method('PUT')
                         <label for="studio_name" class="form-label">Platform Name</label>
-                        <input type="text" class="form-control mb-3" name="studio_name" id="studio_name"
-                            value="{{ $studio->studio_name }}">
-                        <div class="mt-3 float-end">
+                        <input type="text" class="form-control @error('studio_name') is-invalid @enderror"
+                            name="studio_name" id="studio_name" value="{{ $studio->studio_name }}">
+                        @error('studio_name')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                        <div class="mt-4 float-end">
                             <a class="btn btn-primary" href="{{ route('index-studio') }}">Cancel</a>
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </div>
