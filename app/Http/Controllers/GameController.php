@@ -8,6 +8,7 @@ use App\Models\Studio;
 use App\Models\Platform;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class GameController extends Controller
 {
@@ -36,10 +37,13 @@ class GameController extends Controller
             'studio_id' => 'required',
             'platform_id' => 'required',
             'game_name' => 'required|max:255',
+            'game_description' => 'required',
             'image' => 'required|image|file|max:5120'
         ]);
-        $validateData['image'] = $request->file('image')->store('post-images');
+        $request->file('image')->store('public');
+        $validateData['image'] = $request->file('image')->store('');
         Game::create($validateData);
+        Alert::success('Success', 'Game has been added!');
         return redirect()->route('index-game');
     }
 
@@ -61,14 +65,17 @@ class GameController extends Controller
             'studio_id' => 'required',
             'platform_id' => 'required',
             'game_name' => 'required|max:255',
+            'game_description' => 'required',
             'image' => 'image|file|max:5120'
         ]);
         if ($request->oldImage){
             Storage::delete($request->oldImage);
         }
-        $validateData['image'] = $request->file('image')->store('post-images');
+        $request->file('image')->store('public');
+        $validateData['image'] = $request->file('image')->store('');
         $game = Game::find($id);
         $game->update($validateData);
+        Alert::info('Updated', 'Game has been updated!');
         return redirect()->route('index-game');
     }
 
@@ -77,6 +84,8 @@ class GameController extends Controller
         $game = Game::find($id);
         if ($game->image){
             Storage::delete($game->image);
+            Storage::delete('public/'.$game->image);
+            Storage::delete('storage/'.$game->image);
         }
         $game->delete();
         return redirect()->route('index-game');

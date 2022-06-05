@@ -19,7 +19,7 @@ return new class extends Migration
             $table->foreignId('studio_id');
             $table->foreignId('platform_id');
             $table->string('game_name')->unique;
-            $table->string('description');
+            $table->string('game_description');
             $table->string('image');
             $table->timestamps();
         });

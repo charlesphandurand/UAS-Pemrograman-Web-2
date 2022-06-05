@@ -32,6 +32,7 @@
                                     <th>Studio ID</th>
                                     <th>Platform ID</th>
                                     <th>Game</th>
+                                    <th>Description</th>
                                     <th>Image</th>
                                     <th width="20%">Opsi</th>
                                 </tr>
@@ -44,6 +45,7 @@
                                         <td>{{ $game->studio_id }}</td>
                                         <td>{{ $game->platform_id }}</td>
                                         <td>{{ $game->game_name }}</td>
+                                        <td>{!! Illuminate\Support\Str::of($game->game_description)->words(15) !!}</td>
                                         <td>
                                             <div style="max-height: 350px; max-width: 460px; overflow: hidden;">
                                                 <img src="{{ asset('storage/' . $game->image) }}"
