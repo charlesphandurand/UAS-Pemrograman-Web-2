@@ -37,10 +37,8 @@
                                                         href="{{ route('sub-genre', $game->genre->genre_name) }}">{{ $game->genre->genre_name }}</a>
                                                 </h6>
                                                 <p class="card-text">
-                                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil
-                                                    asperiores
-                                                    commodi, rem fugiat necessitatibus qui ab repellendus impedit tempora
-                                                    voluptatum?
+                                                    {{-- <p>{!! $game->game_description !!}</p> --}}
+                                                {!! Illuminate\Support\Str::of($game->game_description)->words(20) !!}
                                                 </p>
                                                 <p class="card-text"><small class="text-muted">Studio:
                                                         {{ $game->studio->studio_name }} | Platform:

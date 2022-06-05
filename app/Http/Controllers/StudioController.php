@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Studio;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class StudioController extends Controller
 {
@@ -28,6 +29,7 @@ class StudioController extends Controller
             'studio_name' => 'required|max:255',
         ]);
         Studio::create($validateData);
+        Alert::success('Success', 'Studio has been added!');
         return redirect()->route('index-studio');
     }
 
@@ -46,6 +48,7 @@ class StudioController extends Controller
         ]);
         $studio = Studio::find($id);
         $studio->update($validateData);
+        Alert::info('Updated', 'Studio has been updated!');
         return redirect()->route('index-studio');
     }
 
@@ -53,6 +56,7 @@ class StudioController extends Controller
     {
         $studio = Studio::find($id);
         $studio->delete();
+        Alert::success('Deleted', 'Studio has been deleted!');
         return redirect()->route('index-studio');
     }
 }

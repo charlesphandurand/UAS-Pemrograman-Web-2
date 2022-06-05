@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Genre;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class GenreController extends Controller
 {
@@ -28,7 +29,8 @@ class GenreController extends Controller
             'genre_name' => 'required|max:255',
         ]);
         Genre::create($validateData);
-        return redirect()->route('index-genre')->with('success', 'Game has been added!');
+        Alert::success('Success', 'Genre has been added!');
+        return redirect()->route('index-genre');
     }
 
     public function editgenre($id)
@@ -46,6 +48,7 @@ class GenreController extends Controller
         ]);
         $genre = Genre::find($id);
         $genre->update($validateData);
+        Alert::info('Updated', 'Genre has been updated!');
         return redirect()->route('index-genre');
     }
 

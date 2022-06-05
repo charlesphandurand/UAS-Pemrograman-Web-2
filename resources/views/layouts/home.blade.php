@@ -14,12 +14,17 @@
     <title>Games | {{ $title }}</title>
     <style>
         .sentuh:hover {
-            color: rgb(24, 255, 236);
-            background-color: rgb(148, 44, 247);
+            color: white;
+            background-color: #106cfc;
         }
-        .gambar:hover{
+
+        .gambar:hover {
             opacity: 0.5;
         }
+        body{
+            position: relative;
+        }
+
     </style>
 </head>
 
@@ -85,8 +90,8 @@
     @yield('konten')
 
     <!-- Footer -->
-    <footer class="footer mt-5 p-5 bg-dark text-white " id="footer" name="footer"
-        style="position: sticky; left:0; right:0; width:100%; top:100%">
+    <footer class="footer p-5 bg-dark text-white " id="footer" name="footer"
+        style="position: absolute; left:0; right:0; width:100%; top:100%">
         <div class="container">
             <div class="row text-center">
                 <div class="col-sm-12">

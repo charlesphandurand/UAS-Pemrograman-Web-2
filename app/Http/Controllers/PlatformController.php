@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Platform;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class PlatformController extends Controller
 {
@@ -28,6 +29,7 @@ class PlatformController extends Controller
             'platform_name' => 'required|max:255',
         ]);
         Platform::create($validateData);
+        Alert::success('Success', 'Platform has been added!');
         return redirect()->route('index-platform');
     }
 
@@ -46,6 +48,7 @@ class PlatformController extends Controller
         ]);
         $platform = Platform::find($id);
         $platform->update($validateData);
+        Alert::info('Updated', 'Platform has been updated!');
         return redirect()->route('index-platform');
     }
 

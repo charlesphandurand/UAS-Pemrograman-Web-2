@@ -4,11 +4,6 @@
     <div id="content">
         {{-- awal table --}}
         <div class="container">
-            @if (session()->has('success'))
-                <div class="alert alert-success" role="alert">
-                    {{ session('success') }}
-                </div>
-            @endif
             <div class="card">
                 <div class="card-header bg-dark text-light">
                     <div class="row">
@@ -47,6 +42,8 @@
                                                 style="display:inline;">
                                                 @csrf
                                                 @method('DELETE')
+                                                {{-- <button type="submit" class="btn btn-danger delete">
+                                                    <i class="bi bi-trash3-fill"></i> Delete</button> --}}
                                                 <button type="submit" class="btn btn-danger"
                                                     onclick="return confirm('Yakin mau hapus?')"><i
                                                         class="bi bi-trash3-fill"></i> Delete</button>

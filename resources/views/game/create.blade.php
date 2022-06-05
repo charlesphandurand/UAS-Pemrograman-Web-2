@@ -22,8 +22,8 @@
                     <form method="post" action="{{ route('store-game') }}" id="create" enctype="multipart/form-data">
                         @csrf
                         <label for="game_name" class="form-label">Game Name</label>
-                        <input type="text" class="form-control @error('game_name') is-invalid @enderror"
-                            name="game_name" id="game_name" autofocus value="{{ old('game_name') }}">
+                        <input type="text" class="form-control @error('game_name') is-invalid @enderror" name="game_name"
+                            id="game_name" autofocus value="{{ old('game_name') }}">
                         @error('game_name')
                             <div class="invalid-feedback">
                                 {{ $message }}
@@ -67,7 +67,15 @@
                                 @endif
                             @endforeach
                         </select>
-                        <label for="image" class="form-label">Upload Image</label>
+                        <label for="game_description" class="form-label">Description</label>
+                        <input name="game_description" id="game_description" type="hidden" name="content" class="form-control @error('game_description') is-invalid @enderror" value="{{ old('game_description') }}">
+                        <trix-editor input="game_description"></trix-editor>
+                        @error('game_description')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                        <label for="image" class="form-label mt-3">Upload Image</label>
                         <img class="img-preview img-fluid mb-3 col-sm-5">
                         <input class="form-control @error('image') is-invalid @enderror" type="file" id="image" name="image"
                             onchange="previewImage()">
