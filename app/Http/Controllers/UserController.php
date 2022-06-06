@@ -23,11 +23,6 @@ class UserController extends Controller
         ]);
     }
 
-    // public function store(Request $request){
-    //     User::create($request->all());
-    //     return redirect()->route('index-user');
-    // }
-
     public function store(Request $request)
     {
         $validatedData = $request->validate([
@@ -51,16 +46,8 @@ class UserController extends Controller
         ]);
     }
 
-    // public function update(Request $request, $id){
-    //     $user = User::find($id);
-    //     $user->update($request->all());
-    //     return redirect()->route('index-user');
-    // }
-
     public function update(Request $request, $id)
     {
-
-
         $validatedData = $request->validate([
             'name' => 'required|min: 4|max:255',
             'username' => ['required', 'min:3', 'max:255'],

@@ -26,7 +26,7 @@
                         <table id="example" class="table table-striped" style="width:100%">
                             <thead>
                                 <tr>
-                                    <th>Genre ID</th>
+                                    <th width="10%">ID</th>
                                     <th>Genre Name</th>
                                     <th width="20%">Opsi</th>
                                 </tr>
@@ -34,7 +34,7 @@
                             <tbody>
                                 @foreach ($daftar_genre as $genre)
                                     <tr>
-                                        <td>{{ $genre->id }}</td>
+                                        <td class="fw-bold">{{ $genre->id }}</td>
                                         <td>{{ $genre->genre_name }}</td>
                                         <td><a class="btn btn-warning edit" href="{{ route('edit-genre', $genre->id) }}">
                                                 <i class="bi bi-pencil-square"></i> Edit</a>

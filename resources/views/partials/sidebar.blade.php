@@ -2,7 +2,8 @@
 <div class="wrapper">
     <nav id="sidebar" class="bg-dark text-light">
         <div class="d-flex flex-column flex-shrink-0 p-3">
-            <a href="{{ route('index-home') }}" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+            <a href="{{ route('index-home') }}"
+                class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
                 <img src="{{ asset('favico.png') }}" alt="icon" height="32px" width="32px"><span
                     class="fs-4 ps-1">Games</span>
             </a>
@@ -55,19 +56,13 @@
             <hr>
             <ul class="list-unstyled CTAs mt-2">
                 @auth
-
                     <li>
                         <form action="{{ route('post-logout') }}" method="POST">
                             @csrf
-                            <button class="btn btn-danger"><i class="bi bi-power pe-2"></i>Log Out</button>
+                            <button class="btn btn-danger" onclick="return confirm('Are you sure want to log out?')"><i
+                                    class="bi bi-power pe-2"></i>Log Out</button>
                         </form>
                     </li>
-                    {{-- @else
-                    <li>
-                        <a class="btn btn-primary fs-9" href="{{ route('index-login') }}">
-                            <i class="bi bi-box-arrow-in-right" style="font-size: 15px"></i> Login</a>
-                    </li> --}}
-
                 @endauth
             </ul>
             {{-- akhir kondisi tombol session login --}}

@@ -28,22 +28,18 @@
                         <table id="example" class="table table-striped" style="width:100%">
                             <thead>
                                 <tr>
-                                    <th>#</th>
-                                    <th>ID</th>
+                                    <th width="10%">ID</th>
                                     <th>Nama</th>
                                     <th>Username</th>
-                                    <th>Password</th>
                                     <th width="20%">Opsi</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach ($daftar_user as $user)
                                     <tr>
-                                        <td scope="row">{{ $loop->index + 1 }}</td>
-                                        <td>{{ $user->id }}</td>
+                                        <td class="fw-bold">{{ $user->id }}</td>
                                         <td>{{ $user->name }}</td>
                                         <td>{{ $user->username }}</td>
-                                        <td>{{ $user->password }}</td>
                                         <td><a class="btn btn-warning edit" href="{{ route('edit-user', $user->id) }}">
                                             <i class="bi bi-pencil-square"></i> Edit</a>
                                         <form action="{{ route('delete-user', $user->id) }}" method="post"

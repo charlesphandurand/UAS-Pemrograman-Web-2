@@ -6,13 +6,14 @@
             <div class="card">
                 <div class="card-header bg-dark text-light">
                     <div class="row">
-                        <div class="col-sm-4">
+                        <div class="col-sm-2">
                             <button type="button" id="sidebarCollapse" class="btn btn-primary">
                                 <i class="bi bi-layout-text-sidebar-reverse"></i></button>
                         </div>
-                        <div class="col-sm-8">
+                        <div class="col-sm-8 text-center">
                             <h3>About</h3>
                         </div>
+                        <div class="col-sm-2"></div>
                     </div>
                 </div>
                 <div class="card-body">
@@ -38,7 +39,7 @@
                     </ol>
 
                     <h3>Terima Kasih</h3>
-                    <p>Dosen Pengampu: Ir. Muhammad Alkaff, S.Kom., M.Kom</p>
+                    <p>Dosen Pengampu: Ir. Muhammad Alkaff, S.Kom., M.Kom.</p>
 
                 </div>
 

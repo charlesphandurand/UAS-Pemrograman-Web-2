@@ -14,12 +14,12 @@
                     @foreach ($daftar_platform as $platform)
                         <div class="col">
                             <a href="{{ route('sub-platform', $platform->platform_name) }}" class="text-decoration-none">
-                            <div class="card sentuh">
-                                <div class="card-body">
-                                    <h5 class="card-title">{{ $platform->platform_name }}</h5>
+                                <div class="card sentuh">
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{ $platform->platform_name }}</h5>
+                                    </div>
                                 </div>
-                            </div>
-                        </a>
+                            </a>
                         </div>
                     @endforeach
                 </div>

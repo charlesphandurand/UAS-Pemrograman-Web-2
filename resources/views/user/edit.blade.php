@@ -18,7 +18,7 @@
                     </div>
                 </div>
                 <div class="card-body">
-                    {{-- awal modal form edit --}}
+                    {{-- awal form edit --}}
                     <form method="post" action="{{ route('update-user', $user->id) }}" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
@@ -51,7 +51,7 @@
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </div>
                     </form>
-                    {{-- akhir modal form edit --}}
+                    {{-- akhir form edit --}}
                 </div>
             </div>
         </div>

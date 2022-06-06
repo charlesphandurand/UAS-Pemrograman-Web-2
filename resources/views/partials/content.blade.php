@@ -17,7 +17,6 @@
                             href="{{ route('sub-genre', $game->genre->genre_name) }}">{{ $game->genre->genre_name }}</a>
                     </h6>
                     <p class="card-text">
-                        {{-- <p>{!! $game->game_description !!}</p> --}}
                     <p>{!! Illuminate\Support\Str::of($game->game_description)->words(20) !!}</p>
                     </p>
                     <p class="card-text"><small class="text-muted">Studio:

@@ -14,12 +14,12 @@
                     @foreach ($daftar_studio as $studio)
                         <div class="col">
                             <a href="{{ route('sub-studio', $studio->studio_name) }}" class="text-decoration-none">
-                            <div class="card sentuh">
-                                <div class="card-body">
-                                    <h5 class="card-title">{{ $studio->studio_name }}</h5>
+                                <div class="card sentuh">
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{ $studio->studio_name }}</h5>
+                                    </div>
                                 </div>
-                            </div>
-                        </a>
+                            </a>
                         </div>
                     @endforeach
                 </div>

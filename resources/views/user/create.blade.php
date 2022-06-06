@@ -18,7 +18,7 @@
                     </div>
                 </div>
                 <div class="card-body">
-                    {{-- awal modal form create --}}
+                    {{-- awal form create --}}
                     <form method="post" action="{{ route('store-user') }}" id="create" enctype="multipart/form-data">
                         @csrf
                         <label for="name" class="form-label">Name</label>
@@ -30,14 +30,16 @@
                             </div>
                         @enderror
                         <label for="username" class="form-label mt-3">Username</label>
-                        <input type="text" class="form-control @error('username') is-invalid @enderror" name="username" id="username">
+                        <input type="text" class="form-control @error('username') is-invalid @enderror" name="username"
+                            id="username">
                         @error('username')
                             <div class="invalid-feedback">
                                 {{ $message }}
                             </div>
                         @enderror
                         <label for="password" class="form-label mt-3">Password</label>
-                        <input type="password" class="form-control @error('password') is-invalid @enderror" name="password" id="password">
+                        <input type="password" class="form-control @error('password') is-invalid @enderror" name="password"
+                            id="password">
                         @error('password')
                             <div class="invalid-feedback">
                                 {{ $message }}
@@ -48,7 +50,7 @@
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </div>
                     </form>
-                    {{-- akhir modal form create --}}
+                    {{-- akhir form create --}}
                 </div>
             </div>
         </div>

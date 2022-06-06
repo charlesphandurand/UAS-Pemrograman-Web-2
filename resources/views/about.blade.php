@@ -8,18 +8,32 @@
             </div>
         </div>
 
-        <div class="row">
+        <div class="row" style="text-align: justify">
+            <h4>Kelompok</h4>
+            <div class="col-md-3 mb-3 mx-auto d-block">
+                <div class="containe">
+                    <img src="{{ asset('charless.png') }}" alt="Charles Phandurand"
+                        class="img-fluid rounded-circle z-depth-2">
+                    <div class="overlay">
+                        <div class="text">Charles Phandurand<br>(2010817110006)</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 mb-3 mx-auto d-block">
+                <div class="containe">
+                    <img src="{{ asset('maulana.png') }}" alt="Maulana" class="img-fluid rounded-circle z-depth-2">
+                    <div class="overlay">
+                        <div class="text">Maulana<br>(2010817310008)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" style="text-align: justify">
             <div class="col-md-12">
-                <h4>Kelompok</h4>
-                <ul>
-                    <li>Charles Phandurand (2010817110006)</li>
-                    <li>Maulana (2010817310008)</li>
-                </ul>
-
                 <h4>Ringkasan</h4>
-                <p>Secara garis besar web ini dibangun untuk memenuhi Ulangan Akhir Semester Pemrograman Web II dengan
-                    tema "Sistem Informasi Games".
-                    Web ini terkoneksi dengan database MySQL, didesain menggunakan Bootstrap, desain tabel menggunakan
+                <p>Secara garis besar web ini dibangun untuk memenuhi Ulangan Akhir Semester
+                    Pemrograman Web II dengan tema "Sistem Informasi Games". Web ini terkoneksi dengan database MySQL,
+                    didesain menggunakan Bootstrap, desain tabel menggunakan
                     DataTables, flash messages dengan Sweet Alert, kolom teks dengan Trix Editor, dan MVC menggunakan
                     framework Laravel.
                 </p>

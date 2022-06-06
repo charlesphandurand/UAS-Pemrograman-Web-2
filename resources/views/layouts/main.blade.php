@@ -31,7 +31,7 @@
     </style>
 </head>
 
-<body style="background-color: rgba(0, 0, 0, 0.226);">
+<body style="background-color: #F2F2F2;">
     @include('partials.sidebar')
 
     @yield('konten')

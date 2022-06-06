@@ -18,14 +18,14 @@
                     </div>
                 </div>
                 <div class="card-body">
-                    {{-- awal modal form edit --}}
+                    {{-- awal form edit --}}
                     <form method="post" action="{{ route('update-platform', $platform->id) }}"
                         enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
                         <label for="platform_name" class="form-label">Platform Name</label>
-                        <input type="text" class="form-control @error('platform_name') is-invalid @enderror" name="platform_name" id="platform_name"
-                            value="{{ $platform->platform_name }}">
+                        <input type="text" class="form-control @error('platform_name') is-invalid @enderror"
+                            name="platform_name" id="platform_name" value="{{ $platform->platform_name }}">
                         @error('platform_name')
                             <div class="invalid-feedback">
                                 {{ $message }}
@@ -36,7 +36,7 @@
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </div>
                     </form>
-                    {{-- akhir modal form edit --}}
+                    {{-- akhir form edit --}}
                 </div>
             </div>
         </div>

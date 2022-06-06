@@ -51,17 +51,6 @@ class HomeController extends Controller
         ]);
     }
 
-    // yg bujur, tpi pagination acak-acakan
-    // public function subgenre(Genre $genre)
-    // {
-    //     $game = Game::paginate(6)->withQueryString();
-    //     return view('genre', compact('game'), [
-    //         "title" => $genre->genre_name,
-    //         "game" => $genre->game,
-    //         "genre" => $genre->genre_name
-    //     ]);
-    // }
-
     public function studio()
     {
         $daftar_studio = Studio::all();

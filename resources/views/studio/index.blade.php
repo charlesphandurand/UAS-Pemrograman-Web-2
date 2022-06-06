@@ -27,7 +27,7 @@
                         <table id="example" class="table table-striped" style="width:100%">
                             <thead>
                                 <tr>
-                                    <th>Studio ID</th>
+                                    <th width="10%">ID</th>
                                     <th>Studio Name</th>
                                     <th width="20%">Opsi</th>
                                 </tr>
@@ -35,9 +35,10 @@
                             <tbody>
                                 @foreach ($daftar_studio as $studio)
                                     <tr>
-                                        <td>{{ $studio->id }}</td>
+                                        <td class="fw-bold">{{ $studio->id }}</td>
                                         <td>{{ $studio->studio_name }}</td>
-                                        <td><a class="btn btn-warning edit" href="{{ route('edit-studio', $studio->id) }}">
+                                        <td><a class="btn btn-warning edit"
+                                                href="{{ route('edit-studio', $studio->id) }}">
                                                 <i class="bi bi-pencil-square"></i> Edit</a>
                                             <form action="{{ route('delete-studio', $studio->id) }}" method="post"
                                                 style="display:inline;">

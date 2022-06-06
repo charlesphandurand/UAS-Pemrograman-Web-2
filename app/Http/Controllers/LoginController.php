@@ -26,7 +26,7 @@ class LoginController extends Controller
             Alert::toast('Login Successfully!', 'success');
             return redirect()->intended(route('index-user'));
         }
-        Alert::toast('Login Failed!','error');
+        Alert::toast('Login Failed!', 'error');
         return back();
     }
 

@@ -26,6 +26,37 @@
             position: relative;
         }
 
+        .containe {
+            position: relative;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 100%;
+            width: 100%;
+            opacity: 0;
+            transition: .5s ease;
+            background-color: #121212;
+            border-radius: 100%
+        }
+
+        .containe:hover .overlay {
+            opacity: 0.9;
+        }
+
+        .text {
+            color: white;
+            font-size: 20px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
     </style>
 </head>
 
@@ -74,7 +105,8 @@
                             <i class="bi bi-arrow-return-right" style="font-size: 15px"></i> Return to Dashboard</a>
                         <form action="{{ route('post-logout') }}" method="POST" class="ps-3">
                             @csrf
-                            <button class="btn btn-danger"><i class="bi bi-power pe-2"></i>Log Out</button>
+                            <button class="btn btn-danger" onclick="return confirm('Are you sure want to log out?')"><i
+                                    class="bi bi-power pe-2"></i>Log Out</button>
                         </form>
                     </div>
                 @else

@@ -27,31 +27,16 @@
                         <table id="example" class="table table-striped" style="width:100%">
                             <thead>
                                 <tr>
-                                    <th>Game ID</th>
-                                    <th>Genre ID</th>
-                                    <th>Studio ID</th>
-                                    <th>Platform ID</th>
-                                    <th>Game</th>
-                                    <th>Description</th>
-                                    <th>Image</th>
+                                    <th width="10%">ID</th>
+                                    <th class="text-center">Game</th>
                                     <th width="20%">Opsi</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach ($daftar_game as $game)
                                     <tr>
-                                        <td>{{ $game->id }}</td>
-                                        <td>{{ $game->genre_id }}</td>
-                                        <td>{{ $game->studio_id }}</td>
-                                        <td>{{ $game->platform_id }}</td>
+                                        <td class="fw-bold">{{ $game->id }}</td>
                                         <td>{{ $game->game_name }}</td>
-                                        <td>{!! Illuminate\Support\Str::of($game->game_description)->words(15) !!}</td>
-                                        <td>
-                                            <div style="max-height: 350px; max-width: 460px; overflow: hidden;">
-                                                <img src="{{ asset('storage/' . $game->image) }}"
-                                                    alt="{{ $game->game_name }}">
-                                            </div>
-                                        </td>
                                         <td><a class="btn btn-warning edit" href="{{ route('edit-game', $game->id) }}">
                                                 <i class="bi bi-pencil-square"></i> Edit</a>
                                             <form action="{{ route('delete-game', $game->id) }}" method="post"

@@ -27,7 +27,7 @@
                         <table id="example" class="table table-striped" style="width:100%">
                             <thead>
                                 <tr>
-                                    <th>Platform ID</th>
+                                    <th width="10%">ID</th>
                                     <th>Platform Name</th>
                                     <th width="20%">Opsi</th>
                                 </tr>
@@ -35,9 +35,10 @@
                             <tbody>
                                 @foreach ($daftar_platform as $platform)
                                     <tr>
-                                        <td>{{ $platform->id }}</td>
+                                        <td class="fw-bold">{{ $platform->id }}</td>
                                         <td>{{ $platform->platform_name }}</td>
-                                        <td><a class="btn btn-warning edit" href="{{ route('edit-platform', $platform->id) }}">
+                                        <td><a class="btn btn-warning edit"
+                                                href="{{ route('edit-platform', $platform->id) }}">
                                                 <i class="bi bi-pencil-square"></i> Edit</a>
                                             <form action="{{ route('delete-platform', $platform->id) }}" method="post"
                                                 style="display:inline;">

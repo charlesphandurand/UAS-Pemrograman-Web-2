@@ -18,11 +18,12 @@
                     </div>
                 </div>
                 <div class="card-body">
-                    {{-- awal modal form create --}}
+                    {{-- awal form create --}}
                     <form method="post" action="{{ route('store-studio') }}" id="create" enctype="multipart/form-data">
                         @csrf
                         <label for="studio_name" class="form-label">Studio Name</label>
-                        <input type="text" class="form-control @error('studio_name') is-invalid @enderror" name="studio_name" id="studio_name" autofocus>
+                        <input type="text" class="form-control @error('studio_name') is-invalid @enderror"
+                            name="studio_name" id="studio_name" autofocus>
                         @error('studio_name')
                             <div class="invalid-feedback">
                                 {{ $message }}
@@ -33,7 +34,7 @@
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </div>
                     </form>
-                    {{-- akhir modal form create --}}
+                    {{-- akhir form create --}}
                 </div>
             </div>
         </div>
