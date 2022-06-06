@@ -7,22 +7,27 @@
                 <hr>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-12">
-                <div class="row row-cols-2 row-cols-md-5 g-2 justify-content-center text-center">
-                    @foreach ($daftar_genre as $genre)
-                        <div class="col">
-                            <a href="{{ route('sub-genre', $genre->genre_name) }}" class="text-decoration-none">
-                                <div class="card sentuh">
-                                    <div class="card-body">
-                                        <h5 class="card-title satu">{{ $genre->genre_name }}</h5>
+
+        @if ($daftar_genre->count())
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="row row-cols-2 row-cols-md-5 g-2 justify-content-center text-center">
+                        @foreach ($daftar_genre as $genre)
+                            <div class="col">
+                                <a href="{{ route('sub-genre', $genre->genre_name) }}" class="text-decoration-none">
+                                    <div class="card sentuh">
+                                        <div class="card-body">
+                                            <h5 class="card-title satu">{{ $genre->genre_name }}</h5>
+                                        </div>
                                     </div>
-                                </div>
-                            </a>
-                        </div>
-                    @endforeach
+                                </a>
+                            </div>
+                        @endforeach
+                    </div>
                 </div>
             </div>
-        </div>
+        @else
+            <p class="text-center fs-3 fw-bold text-danger">There's no genre yet. 😔</p>
+        @endif
     </div>
 @endsection
