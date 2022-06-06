@@ -9,34 +9,30 @@
         </div>
 
         <div class="row">
-            <div class="col-md-6">
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet nihil dolores commodi ad, possimus
-                    dolore quos ducimus, officiis vitae quasi consequatur. Dolorum consectetur eius deleniti velit
-                    itaque suscipit distinctio beatae animi esse, dolor quaerat omnis a iure cupiditate quo. Nisi
-                    eos nulla et at cupiditate error obcaecati expedita cum veniam eum minus necessitatibus nesciunt
-                    deserunt, rem voluptatem ipsum. Necessitatibus, exercitationem dicta tempora a eveniet illo
-                    quidem! Porro commodi hic vero pariatur magni assumenda repudiandae, illo praesentium? Ut earum
-                    sunt praesentium ipsam magni veniam quaerat dicta cupiditate impedit. Qui modi quisquam quod
-                    neque recusandae cupiditate excepturi ipsam debitis iste, vero repellendus enim veniam
-                    laudantium nobis. Minima aperiam alias error illo autem eos veritatis porro eligendi. Natus
-                    dolorem accusamus, error voluptatum dolore dolores molestias, distinctio quod illum expedita
-                    libero odit iure blanditiis voluptas ipsum amet dignissimos aperiam magni, maiores molestiae quo
-                    itaque ratione laborum aliquid? Eum nulla labore maxime eos illo voluptates!</p>
-            </div>
-            <div class="col-md-6">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa aperiam quae tenetur distinctio
-                    itaque similique molestiae beatae a eos, iste eaque maxime non adipisci eligendi est, vel
-                    voluptas magni sed accusamus unde tempora cupiditate soluta aspernatur placeat! Obcaecati
-                    expedita alias eum, porro enim ab ullam fugit accusantium sunt perspiciatis! Quae, aspernatur
-                    vitae vel officiis facere, error voluptates nobis quisquam dolorem fugit laboriosam quidem modi
-                    dolores accusamus repudiandae incidunt temporibus odit minima veritatis est ipsa ipsum
-                    inventore? Rerum praesentium id asperiores quam, voluptate minus nihil natus recusandae
-                    eligendi, totam facilis repellat aspernatur. Magni recusandae ullam quia. Distinctio totam
-                    veniam eaque quo impedit commodi fugiat iste excepturi expedita. Ex aut magni error
-                    necessitatibus voluptates quas quasi distinctio at facilis. Aut ut, architecto hic ipsa illo
-                    eaque reprehenderit eos delectus neque quibusdam obcaecati quidem quas reiciendis nesciunt
-                    fugiat impedit aliquam dolore et sunt voluptatem quae fugit corporis explicabo itaque. Veniam
-                    maxime ea ab!</p>
+            <div class="col-md-12">
+                <h4>Kelompok</h4>
+                <ul>
+                    <li>Charles Phandurand (2010817110006)</li>
+                    <li>Maulana (2010817310008)</li>
+                </ul>
+
+                <h4>Ringkasan</h4>
+                <p>Secara garis besar web ini dibangun untuk memenuhi Ulangan Akhir Semester Pemrograman Web II dengan
+                    tema "Sistem Informasi Games".
+                    Web ini terkoneksi dengan database MySQL, didesain menggunakan Bootstrap, desain tabel menggunakan
+                    DataTables, flash messages dengan Sweet Alert, kolom teks dengan Trix Editor, dan MVC menggunakan
+                    framework Laravel.
+                </p>
+
+                <h4>Pengujian</h4>
+                <ol type="1">
+                    <li>Lakukan import database games</li>
+                    <li>Register & Login</li>
+                    <li>Enjoy!</li>
+                </ol>
+
+                <h4>Terima Kasih</h4>
+                <p>Dosen Pengampu: Ir. Muhammad Alkaff, S.Kom., M.Kom</p>
             </div>
         </div>
 

@@ -23,9 +23,11 @@
                     </ul>
 
                     <h2>Ringkasan</h2>
-                    <p>Secara garis besar web ini dibangun untuk memenuhi Ulangan Akhir Semester Pemrograman Web II dengan tema "Sistem Informasi Games".
-                        Web ini terkoneksi dengan database MySQL, didesain menggunakan Bootstrap, desain tabel menggunakan DataTables, dan
-                        MVC menggunakan framework Laravel.
+                    <p>Secara garis besar web ini dibangun untuk memenuhi Ulangan Akhir Semester Pemrograman Web II dengan
+                        tema "Sistem Informasi Games".
+                        Web ini terkoneksi dengan database MySQL, didesain menggunakan Bootstrap, desain tabel menggunakan
+                        DataTables, flash messages dengan Sweet Alert, kolom teks dengan Trix Editor, dan MVC menggunakan
+                        framework Laravel.
                     </p>
 
                     <h2>Pengujian</h2>

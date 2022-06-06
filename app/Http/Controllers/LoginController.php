@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use session;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class LoginController extends Controller
 {
@@ -22,10 +23,11 @@ class LoginController extends Controller
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
+            Alert::toast('Login Successfully!', 'success');
             return redirect()->intended(route('index-user'));
         }
-
-        return back()->with('loginError', 'Login failed!');
+        Alert::toast('Login Failed!','error');
+        return back();
     }
 
     public function postlogout(Request $request)

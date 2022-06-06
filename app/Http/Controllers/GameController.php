@@ -88,6 +88,7 @@ class GameController extends Controller
             Storage::delete('storage/'.$game->image);
         }
         $game->delete();
+        Alert::success('Deleted', 'Game has been deleted!');
         return redirect()->route('index-game');
     }
 }

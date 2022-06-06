@@ -14,7 +14,7 @@ class HomeController extends Controller
     {
         if ($request->has('search')) {
             $daftar_game = Game::where('game_name', 'LIKE', '%' . $request->search . '%')
-                ->orWhere('id', 'LIKE', '%' . $request->search . '%')->paginate(6)->withQueryString();
+                ->orWhere('game_description', 'LIKE', '%' . $request->search . '%')->paginate(6)->withQueryString();
         } else {
             $daftar_game = Game::paginate(6)->withQueryString();
         }
