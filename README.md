@@ -44,7 +44,12 @@ Secara garis besar web ini dibangun untuk memenuhi Ulangan Akhir Semester Pemrog
     DB_USERNAME=root # sesuaikan dengan username database. biarkan default jika menggunakan database lokal
     DB_PASSWORD= # sesuaikan dengan password database. biarkan default jika menggunakan database lokal
     ```
-6. Website siap dijalankan dengan perintah
+6. Beri hubungan dengan folder storage dengan cara
+
+    ```
+    php artisan storage:link
+    ```
+7. Website siap dijalankan dengan perintah
 
     ```
      php artisan serve
